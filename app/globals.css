@@ -10,6 +10,9 @@ body {
   background-color: #0b0b0b;
   color: white;
 }
+.clip-price {
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

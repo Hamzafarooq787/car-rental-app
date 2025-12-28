@@ -33,7 +33,7 @@ export default function Footer() {
                         </div>
 
                         <a
-                            href="/contact"
+                            href="/contact-us"
                             className="inline-block bg-white text-[#1ecb15] px-6 py-2 rounded-md text-sm font-semibold"
                         >
                             Contact Us
