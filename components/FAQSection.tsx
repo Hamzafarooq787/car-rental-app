@@ -9,28 +9,28 @@ import {
 
 const faqs = [
   {
-    q: "How do I get started with Car Rental?",
-    a: "Getting started is easy. Simply browse our available vehicles, select your preferred pickup location and date, and complete the booking online in just a few steps.",
+    q: "How do I book a chauffeur-driven vehicle?",
+    a: "Booking is simple and seamless. Choose your vehicle, select your pickup details, and confirm your reservation online within minutes.",
   },
   {
-    q: "Can I rent a car with a debit card?",
-    a: "Yes, debit cards are accepted for most rentals. However, certain vehicle categories may require a credit card for security purposes.",
+    q: "Do you provide professional chauffeurs?",
+    a: "Yes. All our chauffeurs are highly trained, licensed professionals with extensive experience in luxury and executive transport.",
   },
   {
-    q: "What kind of Car Rental do I need?",
-    a: "It depends on your travel needs. Compact cars are ideal for city driving, SUVs for family trips, and luxury vehicles for business or special occasions.",
+    q: "What types of vehicles are available?",
+    a: "Our fleet includes executive sedans, luxury SUVs, premium vans, and prestige vehicles suitable for business, leisure, and special occasions.",
   },
   {
-    q: "What is a rental car security deposit?",
-    a: "A security deposit is a temporary hold on your payment method to cover any potential damages or additional charges during the rental period.",
+    q: "Is there a security deposit required?",
+    a: "A refundable security deposit may apply depending on the vehicle category and booking type. Full details are shared before confirmation.",
   },
   {
-    q: "Can I cancel or modify my reservation?",
-    a: "Yes, reservations can be modified or cancelled before pickup time. Cancellation policies may vary depending on the booking type.",
+    q: "Can I modify or cancel my booking?",
+    a: "Yes. Bookings can be modified or cancelled prior to pickup time, subject to our flexible cancellation policy.",
   },
   {
-    q: "Is it possible to extend my rental period?",
-    a: "Absolutely. You can extend your rental by contacting customer support or updating your booking online, subject to vehicle availability.",
+    q: "Do you offer hourly chauffeur services?",
+    a: "Absolutely. Our hourly chauffeur service is ideal for meetings, events, city tours, and business engagements.",
   },
 ];
 
@@ -40,9 +40,14 @@ export default function FAQSection() {
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-[#0b1c39] mb-14">
-          Have Any Questions?
-        </h2>
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0b1c39]">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+            Everything you need to know about our premium chauffeur services
+          </p>
+        </div>
 
         {/* FAQ Grid */}
         <Accordion
@@ -70,6 +75,11 @@ export default function FAQSection() {
             </AccordionItem>
           ))}
         </Accordion>
+
+        {/* Bottom Accent Line */}
+        <div className="mt-16 flex justify-center">
+          <span className="block w-24 h-[2px] bg-[#BF9B30]" />
+        </div>
 
       </div>
     </section>

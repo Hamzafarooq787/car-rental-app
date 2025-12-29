@@ -7,11 +7,11 @@ export default function OnlyQualityForClients() {
 
   const content = {
     luxury:
-      'We offer a meticulously curated collection of luxury vehicles designed for elegance and performance.',
+      'Our luxury chauffeur vehicles are carefully selected to deliver elegance, performance, and an exceptional travel experience.',
     comfort:
-      'Our comfort vehicles provide smooth rides, spacious interiors, and premium features for relaxed journeys.',
+      'Designed for relaxed journeys, our comfort-class vehicles offer spacious interiors, smooth rides, and premium amenities.',
     prestige:
-      'Prestige vehicles are ideal for executives and special occasions, offering superior status and refinement.',
+      'Prestige vehicles are reserved for executives and special occasions, combining status, sophistication, and refined comfort.',
   };
 
   return (
@@ -28,7 +28,7 @@ export default function OnlyQualityForClients() {
 
         <div>
           <h2 className="text-3xl md:text-4xl font-semibold text-[#0b1c39] mb-6">
-            Only Quality For Clients
+            Only Quality for Our Clients
           </h2>
 
           <div className="flex gap-4 mb-6">
@@ -39,7 +39,7 @@ export default function OnlyQualityForClients() {
                 className={`px-6 py-2 rounded-md text-sm font-medium transition
                   ${
                     active === tab
-                      ? 'bg-[#1ecb15] text-white'
+                      ? 'bg-[#BF9B30] text-white'
                       : 'border text-gray-500'
                   }`}
               >

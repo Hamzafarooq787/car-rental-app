@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 15425, label: "Completed Orders" },
-  { value: 8745, label: "Happy Customers" },
-  { value: 235, label: "Vehicles Fleet" },
-  { value: 15, label: "Years Experience" },
+  { value: 15425, label: "Completed Chauffeur Trips" },
+  { value: 8745, label: "Satisfied Clients" },
+  { value: 235, label: "Luxury Vehicles" },
+  { value: 15, label: "Years of Excellence" },
 ];
 
 export default function StatsSection() {
@@ -22,8 +22,8 @@ export default function StatsSection() {
             stats.forEach((stat, index) => {
               let start = 0;
               const end = stat.value;
-              const duration = 2000; // 2 seconds
-              const increment = Math.ceil(end / (duration / 50)); // update every 50ms
+              const duration = 2000;
+              const increment = Math.ceil(end / (duration / 50));
 
               const interval = setInterval(() => {
                 start += increment;
@@ -41,7 +41,7 @@ export default function StatsSection() {
             observer.disconnect();
           }
         },
-        { threshold: 0.3 } // section enters viewport
+        { threshold: 0.3 }
       );
       observer.observe(ref.current);
     }
@@ -56,7 +56,7 @@ export default function StatsSection() {
             key={index}
             className="bg-white/10 backdrop-blur-sm rounded-lg p-5 text-center"
           >
-            <div className="text-[#1ecb15] text-4xl font-semibold mb-1">
+            <div className="text-[#BF9B30] text-4xl font-semibold mb-1">
               {counts[index]}
             </div>
             <p className="text-gray-600 text-xs">{stat.label}</p>
