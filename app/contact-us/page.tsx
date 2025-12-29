@@ -1,12 +1,43 @@
-// app/contact-us/page.tsx
+"use client";
+
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import React from "react";
+import React, { useState } from "react";
 
 const ContactPage: React.FC = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    setLoading(false);
+
+    if (res.ok) {
+      alert("Message sent successfully ✅");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } else {
+      alert("Something went wrong ❌");
+    }
+  };
+
   return (
     <>
       <Header />
+
       {/* SUBHEADER */}
       <section
         className="relative h-[320px] flex items-center justify-center"
@@ -31,93 +62,103 @@ const ContactPage: React.FC = () => {
               Do you have any question?
             </h2>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-600 placeholder-gray-400 focus:text-black focus:outline-none"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className="w-full border border-gray-300 rounded-md px-4 py-3
+                             text-gray-700 placeholder-gray-400
+                             focus:outline-none focus:ring-2 focus:ring-[#1ecb15]
+                             focus:text-gray-900"
+                  required
                 />
+
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-600 placeholder-gray-400 focus:text-black focus:outline-none"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className="w-full border border-gray-300 rounded-md px-4 py-3
+                             text-gray-700 placeholder-gray-400
+                             focus:outline-none focus:ring-2 focus:ring-[#1ecb15]
+                             focus:text-gray-900"
+                  required
                 />
+
                 <input
                   type="text"
                   placeholder="Your Phone"
-                  className="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-600 placeholder-gray-400 focus:text-black focus:outline-none"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  className="w-full border border-gray-300 rounded-md px-4 py-3
+                             text-gray-700 placeholder-gray-400
+                             focus:outline-none focus:ring-2 focus:ring-[#1ecb15]
+                             focus:text-gray-900"
                 />
               </div>
 
               <textarea
-                placeholder="Your Message"
                 rows={7}
-                className="w-full border border-gray-300 rounded-md px-4 py-3 text-gray-600 placeholder-gray-400 focus:text-black focus:outline-none"
+                placeholder="Your Message"
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className="w-full border border-gray-300 rounded-md px-4 py-3
+                           text-gray-700 placeholder-gray-400
+                           focus:outline-none focus:ring-2 focus:ring-[#1ecb15]
+                           focus:text-gray-900"
+                required
               />
 
               <button
                 type="submit"
-                className="bg-[#1ecb15] text-white px-10 py-3 rounded-md font-semibold text-sm"
+                disabled={loading}
+                className="bg-[#1ecb15] text-white px-10 py-3 rounded-md font-semibold text-sm hover:bg-green-600 transition"
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
 
           {/* RIGHT INFO */}
-          <div className="space-y-8">
-
-            {/* US OFFICE */}
+          <div className="space-y-8 text-gray-700">
             <div className="border border-gray-200 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                US Office
-              </h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">US Office</h4>
               <ul className="space-y-4 text-sm">
-                <li className="flex gap-3 text-gray-800">
-                  <i className="fa-solid fa-location-dot text-green-500" />
+                <li className="flex gap-3 items-start">
+                  <i className="fa-solid fa-location-dot text-[#1ecb15] text-lg mt-1" />
                   08 W 36th St, New York, NY 10001
                 </li>
-                <li className="flex gap-3 text-gray-800">
-                  <i className="fa-solid fa-phone text-green-500" />
+                <li className="flex gap-3 items-start">
+                  <i className="fa-solid fa-phone text-[#1ecb15] text-lg mt-1" />
                   +1 333 9296
                 </li>
-                <li className="flex gap-3 text-gray-800">
-                  <i className="fa-solid fa-envelope text-green-500" />
+                <li className="flex gap-3 items-start">
+                  <i className="fa-solid fa-envelope text-[#1ecb15] text-lg mt-1" />
                   contact@example.com
-                </li>
-                <li className="flex gap-3 text-gray-800">
-                  <i className="fa-solid fa-download text-green-500" />
-                  Download Brochure
                 </li>
               </ul>
             </div>
 
-            {/* AU OFFICE */}
             <div className="border border-gray-200 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                AU Office
-              </h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">AU Office</h4>
               <ul className="space-y-4 text-sm">
-                <li className="flex gap-3 text-gray-800">
-                  <i className="fa-solid fa-location-dot text-green-500" />
+                <li className="flex gap-3 items-start">
+                  <i className="fa-solid fa-location-dot text-[#1ecb15] text-lg mt-1" />
                   100 Mainstreet Center, Sydney
                 </li>
-                <li className="flex gap-3 text-gray-800">
-                  <i className="fa-solid fa-phone text-green-500" />
+                <li className="flex gap-3 items-start">
+                  <i className="fa-solid fa-phone text-[#1ecb15] text-lg mt-1" />
                   +61 333 9296
                 </li>
-                <li className="flex gap-3 text-gray-800">
-                  <i className="fa-solid fa-envelope text-green-500" />
+                <li className="flex gap-3 items-start">
+                  <i className="fa-solid fa-envelope text-[#1ecb15] text-lg mt-1" />
                   contact@example.com
-                </li>
-                <li className="flex gap-3 text-gray-800">
-                  <i className="fa-solid fa-download text-green-500" />
-                  Download Brochure
                 </li>
               </ul>
             </div>
-
           </div>
         </div>
       </section>

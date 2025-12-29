@@ -23,7 +23,6 @@ export default function Header() {
     { name: "Cars", path: "/cars" },
     { name: "Contact US", path: "/contact-us" },
     { name: "Services", path: "/services" },
-    { name: "Areas", path: "/areas" },
   ];
 
   return (
@@ -101,17 +100,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/signin"
-              className={`mt-2 px-4 py-2 rounded-md text-sm font-semibold text-center transition ${
-                pathname === "/signin"
-                  ? "bg-green-600 text-white"
-                  : "bg-green-500 text-white hover:bg-green-600"
-              }`}
-              onClick={() => setMenuOpen(false)}
-            >
-              Sign In
-            </Link>
+         
           </div>
         </div>
       )}
