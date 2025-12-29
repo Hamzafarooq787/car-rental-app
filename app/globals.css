@@ -12,6 +12,18 @@
     transform: translateX(-50%);
   }
 }
+@keyframes marquee-linear {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-linear {
+  animation: marquee-linear 3s linear infinite;
+}
 
 .animate-fleet-left {
   animation: fleetLeft 33s linear infinite;

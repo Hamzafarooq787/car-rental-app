@@ -3,11 +3,9 @@ import React from "react";
 export default function Footer() {
   return (
     <>
-      {/* CTA SECTION */}
+      {/* CTA SECTION (NO CHANGE) */}
       <section className="bg-[#BF9B30] py-12">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-
-          {/* Left */}
           <div>
             <span className="inline-block bg-white/20 text-white text-xs px-4 py-1 rounded-full mb-4 tracking-wide">
               Premium Chauffeur Support
@@ -19,7 +17,6 @@ export default function Footer() {
             </h2>
           </div>
 
-          {/* Right */}
           <div className="text-left md:text-right">
             <div className="flex md:justify-end items-center gap-3 mb-2">
               <i className="fa-solid fa-phone text-white text-xl" />
@@ -39,73 +36,29 @@ export default function Footer() {
               Get in Touch
             </a>
           </div>
-
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#0b0b0b] text-gray-400 pt-20">
+      {/* MAIN FOOTER */}
+      <footer className="bg-[#111111] text-gray-300 pt-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 pb-16">
 
-          {/* About */}
+          {/* ABOUT */}
           <div>
-            <h4 className="text-white font-semibold mb-5">
-              About Our Chauffeur Service
-            </h4>
-            <p className="text-sm leading-relaxed">
-              We provide luxury chauffeur-driven transport designed for comfort,
-              discretion, and reliability. From airport transfers to executive
-              travel, every journey is delivered with precision and elegance.
+            <p className="text-sm leading-relaxed mb-6">
+              Travel with confidence with our luxury chauffeur service. We provide
+              dependable city transfers and long-distance journeys across the UK,
+              ensuring comfort, punctuality and professional service every time.
             </p>
-          </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold mb-5">Contact Information</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-3">
-                <i className="fa-solid fa-location-dot text-[#BF9B30] mt-1" />
-                London, United Kingdom
-              </li>
-              <li className="flex items-center gap-3">
-                <i className="fa-solid fa-phone text-[#BF9B30]" />
-                +44 20 0000 0000
-              </li>
-              <li className="flex items-center gap-3">
-                <i className="fa-solid fa-envelope text-[#BF9B30]" />
-                <a href="mailto:info@yourdomain.com">
-                  info@yourdomain.com
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <i className="fa-solid fa-file-arrow-down text-[#BF9B30]" />
-                <a href="/brochure.pdf">Download Company Brochure</a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-semibold mb-5">Quick Links</h4>
-            <ul className="space-y-3 text-sm">
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/services">Our Services</a></li>
-              <li><a href="/fleet">Our Fleet</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li><a href="/faq">FAQs</a></li>
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h4 className="text-white font-semibold mb-5">Follow Us</h4>
-            <div className="flex gap-3">
-              {["facebook-f", "instagram", "linkedin-in", "twitter"].map(
+            {/* SOCIAL */}
+            <div className="flex gap-4">
+              {["facebook-f", "linkedin-in", "pinterest-p", "instagram"].map(
                 (icon) => (
                   <a
                     key={icon}
                     href="#"
-                    className="w-10 h-10 bg-[#151515] flex items-center justify-center rounded-md text-[#BF9B30] hover:bg-[#1f1f1f] transition"
+                    className="w-10 h-10 rounded-full bg-[#1a1a1a] flex items-center justify-center text-[#BF9B30] hover:bg-[#222] transition"
                   >
                     <i className={`fa-brands fa-${icon}`} />
                   </a>
@@ -114,18 +67,67 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* AIRPORT TRANSFERS */}
+          <div>
+            <h4 className="text-[#BF9B30] font-semibold mb-5">
+              Airport Transfers
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li>Heathrow Airport Transfer</li>
+              <li>Gatwick Airport Transfer</li>
+              <li>Stansted Airport Transfer</li>
+              <li>London Airport Transfer</li>
+              <li>Luton Airport Transfer</li>
+              <li>Farnborough Airport Transfer</li>
+              <li>Biggin Hill Airport Transfer</li>
+              <li>London City</li>
+              <li>Oxshott City Transfer</li>
+            </ul>
+          </div>
+
+          {/* AREAS WE COVER */}
+          <div>
+            <h4 className="text-[#BF9B30] font-semibold mb-5">
+              Areas We Cover
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li>Aldershot Transfers</li>
+              <li>Ascot Transfers</li>
+              <li>Camberley Transfers</li>
+              <li>Farnborough Transfers</li>
+              <li>Farnham Transfers</li>
+              <li>Weybridge Transfers</li>
+              <li>Woking Transfers</li>
+              <li>Virginia Water Transfer</li>
+              <li>Guildford City</li>
+              <li>Godalming City</li>
+            </ul>
+          </div>
+
+          {/* BOOK TRANSFERS */}
+          <div>
+            <h4 className="text-[#BF9B30] font-semibold mb-5">
+              Book Chauffeur Transfers
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li>Woking to Birmingham</li>
+              <li>Woking to Bristol</li>
+              <li>Woking to Edinburgh</li>
+              <li>Woking to Glasgow</li>
+              <li>Woking to Leeds</li>
+              <li>Woking to Liverpool</li>
+              <li>Woking to Manchester</li>
+              <li>Woking to Newcastle</li>
+              <li>Woking to Nottingham</li>
+              <li>Woking to Sheffield</li>
+            </ul>
+          </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* BOTTOM BAR */}
         <div className="border-t border-white/10 py-6">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm gap-4">
-            <span>
-              © {new Date().getFullYear()} Luxury Chauffeur Services. All rights reserved.
-            </span>
-            <div className="flex gap-6">
-              <a href="/terms">Terms & Conditions</a>
-              <a href="/privacy">Privacy Policy</a>
-            </div>
+          <div className="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400">
+            © {new Date().getFullYear()} Ai Luxe Limited. All Rights Reserved
           </div>
         </div>
       </footer>
