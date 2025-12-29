@@ -73,48 +73,10 @@ const AboutPage: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-6">
 
           <h2 className="text-center text-white text-3xl md:text-4xl font-semibold mb-16">
-            Board of Directors
+            We specialise in premium chauffeur-driven transport, delivering seamless experiences for business travel, airport transfers, corporate events, and private occasions.
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-
-            {[
-              { img: "/images/team/1.jpg", name: "Fynley Wilkinson", role: "Chief Creative Officer" },
-              { img: "/images/team/2.jpg", name: "Peter Welsh", role: "Chief Technology Officer" },
-              { img: "/images/team/3.jpg", name: "John Shepard", role: "Chief Executive Officer" },
-              { img: "/images/team/4.jpg", name: "Robyn Peel", role: "Director of Finance" },
-            ].map((member, i) => (
-              <div key={i} className="group text-center">
-
-                <div className="relative overflow-hidden rounded-xl mb-4">
-                  <img
-                    src={member.img}
-                    alt={member.name}
-                    className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition">
-                    {["facebook-f", "twitter", "linkedin-in", "pinterest-p"].map(
-                      (icon) => (
-                        <a
-                          key={icon}
-                          href="#"
-                          className="w-10 h-10 bg-[#BF9B30] rounded-md flex items-center justify-center text-white"
-                        >
-                          <i className={`fa-brands fa-${icon}`} />
-                        </a>
-                      )
-                    )}
-                  </div>
-                </div>
-
-                <h4 className="text-white font-semibold text-lg">{member.name}</h4>
-                <p className="text-gray-300 text-sm">{member.role}</p>
-
-              </div>
-            ))}
-
-          </div>
+          
         </div>
       </section>
 
