@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 
 export default function Footer() {
@@ -49,6 +50,41 @@ export default function Footer() {
               Royalerides provides premium chauffeur-driven transport across the UK.
               We focus on punctuality, discretion, and comfort for every journey.
             </p>
+          </div>
+
+          {/* AIRPORT TRANSFERS */}
+          <div>
+            <h4 className="text-[#BF9B30] font-semibold mb-5">
+              Airport Transfers
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li>Heathrow Airport</li>
+              <li>Gatwick Airport</li>
+              <li>Stansted Airport</li>
+              <li>Luton Airport</li>
+              <li>London City Airport</li>
+            </ul>
+          </div>
+
+          {/* CHAUFFEUR SERVICES (moved here) */}
+          <div>
+            <h4 className="text-[#BF9B30] font-semibold mb-5">
+              Chauffeur Services
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li>Airport Chauffeur Service</li>
+              <li>Corporate Travel</li>
+              <li>Long Distance Transfers</li>
+              <li>Executive Chauffeur Hire</li>
+              <li>Event & Business Travel</li>
+            </ul>
+          </div>
+
+          {/* CONTACT DETAILS (moved here) */}
+          <div>
+            <h4 className="text-[#BF9B30] font-semibold mb-5">
+              Contact Details
+            </h4>
 
             <div className="space-y-3 text-sm">
               <p>
@@ -67,48 +103,6 @@ export default function Footer() {
                 +44 7310 236707
               </p>
             </div>
-          </div>
-
-          {/* AIRPORT TRANSFERS */}
-          <div>
-            <h4 className="text-[#BF9B30] font-semibold mb-5">
-              Airport Transfers
-            </h4>
-            <ul className="space-y-3 text-sm">
-              <li>Heathrow Airport</li>
-              <li>Gatwick Airport</li>
-              <li>Stansted Airport</li>
-              <li>Luton Airport</li>
-              <li>London City Airport</li>
-            </ul>
-          </div>
-
-          {/* AREAS WE COVER */}
-          <div>
-            <h4 className="text-[#BF9B30] font-semibold mb-5">
-              Areas We Cover
-            </h4>
-            <ul className="space-y-3 text-sm">
-              <li>Manchester</li>
-              <li>Bolton</li>
-              <li>Woking</li>
-              <li>Guildford</li>
-              <li>Surrey & Greater London</li>
-            </ul>
-          </div>
-
-          {/* SERVICES */}
-          <div>
-            <h4 className="text-[#BF9B30] font-semibold mb-5">
-              Chauffeur Services
-            </h4>
-            <ul className="space-y-3 text-sm">
-              <li>Airport Chauffeur Service</li>
-              <li>Corporate Travel</li>
-              <li>Long Distance Transfers</li>
-              <li>Executive Chauffeur Hire</li>
-              <li>Event & Business Travel</li>
-            </ul>
           </div>
         </div>
 
