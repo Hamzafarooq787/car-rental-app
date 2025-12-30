@@ -1,6 +1,18 @@
-'use client';
+"use client";
+
+import { useState } from "react";
 
 export default function HeroSection() {
+  const [formData, setFormData] = useState({
+    carType: "Executive", // default selected so form never blocks
+    pickup: "",
+    dropoff: "",
+    pickupDate: "",
+    pickupTime: "",
+    returnDate: "",
+    returnTime: "",
+  });
+
   return (
     <>
       <section
@@ -15,7 +27,6 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative max-w-6xl mx-auto px-6">
-
           <div className="h-24" />
           <div className="h-24" />
 
@@ -34,7 +45,13 @@ export default function HeroSection() {
 
           {/* FORM BOX */}
           <div className="bg-white rounded-xl shadow-xl p-6 md:p-8">
-            <form>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("Availability request submitted");
+                console.log(formData);
+              }}
+            >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
                 {/* LEFT: VEHICLE TYPE */}
@@ -45,16 +62,28 @@ export default function HeroSection() {
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {[
-                      { id: "car", label: "Executive", img: "/images/select-form/car.png" },
-                      { id: "van", label: "Luxury Van", img: "/images/select-form/van.png" },
-                      { id: "minibus", label: "Minibus", img: "/images/select-form/minibus.png" },
-                      { id: "prestige", label: "Prestige", img: "/images/select-form/sportscar.png" },
+                      { label: "Executive", img: "/images/select-form/car.png" },
+                      { label: "Luxury Van", img: "/images/select-form/van.png" },
+                      { label: "Minibus", img: "/images/select-form/minibus.png" },
+                      { label: "Prestige", img: "/images/select-form/sportscar.png" },
                     ].map((v) => (
                       <label
-                        key={v.id}
+                        key={v.label}
                         className="bg-[#BF9B30] text-white rounded-xl p-4 text-center cursor-pointer hover:opacity-90 transition"
                       >
-                        <input type="radio" name="Car_Type" className="hidden" />
+                        <input
+                          type="radio"
+                          name="carType"
+                          value={v.label}
+                          checked={formData.carType === v.label}
+                          className="hidden"
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              carType: e.target.value,
+                            })
+                          }
+                        />
                         <img
                           src={v.img}
                           alt={v.label}
@@ -69,54 +98,120 @@ export default function HeroSection() {
                 {/* RIGHT: INPUTS */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
+                  {/* PICKUP */}
                   <div>
                     <h5 className="font-semibold mb-2 text-[#002462]">
                       Pick-up Location
                     </h5>
                     <input
                       type="text"
+                      required
                       placeholder="Enter pickup location"
                       className="w-full border border-gray-300 rounded-md px-3 py-2 text-black focus:outline-none"
+                      onChange={(e) =>
+                        setFormData({ ...formData, pickup: e.target.value })
+                      }
                     />
                   </div>
 
+                  {/* DROPOFF */}
                   <div>
                     <h5 className="font-semibold mb-2 text-[#002462]">
                       Drop-off Location
                     </h5>
                     <input
                       type="text"
+                      required
                       placeholder="Enter destination"
                       className="w-full border border-gray-300 rounded-md px-3 py-2 text-black focus:outline-none"
+                      onChange={(e) =>
+                        setFormData({ ...formData, dropoff: e.target.value })
+                      }
                     />
                   </div>
 
+                  {/* PICKUP DATE TIME */}
                   <div>
                     <h5 className="font-semibold mb-2 text-[#002462]">
                       Pick-up Date & Time
                     </h5>
                     <div className="flex border border-gray-300 rounded-md overflow-hidden">
                       <input
-                        placeholder="Select date"
+                        type="date"
+                        required
                         className="w-full px-3 py-2 text-gray-900 focus:outline-none"
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            pickupDate: e.target.value,
+                          })
+                        }
                       />
-                      <select className="border-l border-gray-300 px-3 text-gray-900 focus:outline-none">
-                        <option>Time</option>
+                      <select
+                        required
+                        className="border-l border-gray-300 px-3 text-gray-900 focus:outline-none"
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            pickupTime: e.target.value,
+                          })
+                        }
+                      >
+                        <option value="">Time</option>
+                        <option>08:00</option>
+                        <option>09:00</option>
+                        <option>10:00</option>
+                        <option>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
                       </select>
                     </div>
                   </div>
 
+                  {/* RETURN DATE TIME */}
                   <div>
                     <h5 className="font-semibold mb-2 text-[#002462]">
                       Return Date & Time
                     </h5>
                     <div className="flex border border-gray-300 rounded-md overflow-hidden">
                       <input
-                        placeholder="Select date"
+                        type="date"
+                        required
                         className="w-full px-3 py-2 text-gray-900 focus:outline-none"
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            returnDate: e.target.value,
+                          })
+                        }
                       />
-                      <select className="border-l border-gray-300 px-3 text-gray-900 focus:outline-none">
-                        <option>Time</option>
+                      <select
+                        required
+                        className="border-l border-gray-300 px-3 text-gray-900 focus:outline-none"
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            returnTime: e.target.value,
+                          })
+                        }
+                      >
+                        <option value="">Time</option>
+                        <option>08:00</option>
+                        <option>09:00</option>
+                        <option>10:00</option>
+                        <option>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
                       </select>
                     </div>
                   </div>
@@ -140,31 +235,14 @@ export default function HeroSection() {
 
           {/* TIMELINE */}
           <div className="relative text-white mt-20">
-
             <div className="hidden md:block absolute top-5 left-0 w-full h-[2px] bg-[#BF9B30]" />
 
             <ul className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center relative">
               {[
-                {
-                  step: "1",
-                  title: "Select Vehicle",
-                  text: "Choose from our executive and luxury chauffeur fleet.",
-                },
-                {
-                  step: "2",
-                  title: "Set Details",
-                  text: "Define your route, time and preferred schedule.",
-                },
-                {
-                  step: "3",
-                  title: "Confirm Booking",
-                  text: "Transparent pricing with instant confirmation.",
-                },
-                {
-                  step: "4",
-                  title: "Enjoy the Journey",
-                  text: "Relax while your chauffeur delivers a flawless ride.",
-                },
+                { step: "1", title: "Select Vehicle", text: "Choose from our luxury chauffeur fleet." },
+                { step: "2", title: "Set Details", text: "Define route, date and time." },
+                { step: "3", title: "Confirm Booking", text: "Clear pricing and confirmation." },
+                { step: "4", title: "Enjoy the Journey", text: "Relax with professional service." },
               ].map((item) => (
                 <li key={item.step} className="relative px-4">
                   <div className="relative z-10 w-10 h-10 mx-auto mb-6 rounded bg-[#BF9B30] flex items-center justify-center font-bold">

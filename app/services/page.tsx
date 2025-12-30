@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import FleetHeroCarousel from "@/components/FleetHeroCarousel";
+import Link from "next/link";
 
 type Service = {
   title: string;
@@ -114,26 +115,20 @@ export default function ServicesPage() {
                   <p className="text-base md:text-lg leading-relaxed">
                     {service.desc}
                   </p>
-                  <div className="flex flex-wrap gap-4 mt-4">
-                    <button
-                      className={`px-5 py-2 font-semibold rounded transition transform hover:scale-105 ${
-                        isEven
-                          ? "bg-[#BF9B30] text-white hover:opacity-90"
-                          : "bg-white text-[#BF9B30] hover:bg-[#0b1c39] hover:text-white"
-                      }`}
-                    >
-                      Book Now
-                    </button>
-                    <button
-                      className={`px-5 py-2 font-semibold rounded border transition transform hover:scale-105 ${
-                        isEven
-                          ? "border-[#BF9B30] text-[#BF9B30] hover:bg-[#BF9B30] hover:text-white"
-                          : "border-white text-white hover:bg-white hover:text-[#BF9B30]"
-                      }`}
-                    >
-                      Read More
-                    </button>
-                  </div>
+                 <div className="flex flex-wrap gap-4 mt-4">
+  <Link href="/contact-us">
+    <button
+      className={`px-5 py-2 font-semibold rounded transition transform hover:scale-105 ${
+        isEven
+          ? "bg-[#BF9B30] text-white hover:opacity-90"
+          : "bg-white text-[#BF9B30] hover:bg-[#0b1c39] hover:text-white"
+      }`}
+    >
+      Book Now
+    </button>
+  </Link>
+</div>
+
                 </div>
               </motion.div>
             );
