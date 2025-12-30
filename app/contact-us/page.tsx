@@ -131,35 +131,15 @@ const ContactPage: React.FC = () => {
               <ul className="space-y-4 text-sm">
                 <li className="flex gap-3 items-start">
                   <i className="fa-solid fa-location-dot text-[#BF9B30] text-lg mt-1" />
-                  Central London, United Kingdom
+                  BL4 7LJ, Bolton, Manchester
                 </li>
                 <li className="flex gap-3 items-start">
                   <i className="fa-solid fa-phone text-[#BF9B30] text-lg mt-1" />
-                  +44 20 0000 0000
+                  +44 7310 236707
                 </li>
                 <li className="flex gap-3 items-start">
                   <i className="fa-solid fa-envelope text-[#BF9B30] text-lg mt-1" />
-                  bookings@yourdomain.com
-                </li>
-              </ul>
-            </div>
-
-            <div className="border border-gray-200 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                Dubai Office
-              </h4>
-              <ul className="space-y-4 text-sm">
-                <li className="flex gap-3 items-start">
-                  <i className="fa-solid fa-location-dot text-[#BF9B30] text-lg mt-1" />
-                  Downtown Dubai, UAE
-                </li>
-                <li className="flex gap-3 items-start">
-                  <i className="fa-solid fa-phone text-[#BF9B30] text-lg mt-1" />
-                  +971 50 000 0000
-                </li>
-                <li className="flex gap-3 items-start">
-                  <i className="fa-solid fa-envelope text-[#BF9B30] text-lg mt-1" />
-                  concierge@yourdomain.com
+                  Info@royalerides.co.uk
                 </li>
               </ul>
             </div>
