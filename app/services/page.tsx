@@ -11,46 +11,39 @@ import Link from "next/link";
 type Service = {
   title: string;
   desc: string;
-  price: string;
   image: string;
 };
 
 const services: Service[] = [
   {
-    title: "Luxury Chauffeur Service in Dubai",
-    desc: "Executive chauffeur-driven vehicles for corporate travel, business events, exhibitions, and VIP transportation across Dubai.",
-    price: "From 90 AED / hour",
-    image: "/images/s1webp.webp",
+    title: "Executive Chauffeur Service",
+    desc: "A refined chauffeur experience designed for professionals who value discretion, comfort, and reliability for every journey.",
+    image: "/images/services/Executive-Chaffeur.jpg",
   },
   {
     title: "Professional Chauffeur Hire",
-    desc: "Experienced, background-verified chauffeurs offering flexible hourly and full-day chauffeur packages.",
-    price: "From 75 AED",
-    image: "/images/s2.webp",
+    desc: "Highly trained, vetted chauffeurs offering flexible hire options to suit business schedules and private requirements.",
+    image: "/images/services/Professional-chauffeur.jpg",
   },
   {
-    title: "Luxury Van & MPV Chauffeur Service",
-    desc: "Premium vans ideal for families, airport transfers, and intercity journeys with refined interiors.",
-    price: "From 100 AED",
-    image: "/images/s3.webp",
+    title: "Luxury MPV & Van Chauffeur Service",
+    desc: "Spacious and comfortable vehicles ideal for families, groups, or additional luggage, delivered with a premium service standard.",
+    image: "/images/services/MPV-Van.jpg",
   },
   {
-    title: "Abu Dhabi Chauffeur City Tour",
-    desc: "Discover iconic Abu Dhabi landmarks with private chauffeur-driven comfort and local expertise.",
-    price: "From 400 AED",
-    image: "/images/s6.webp",
+    title: "Private Chauffeur Experiences",
+    desc: "A calm, personalised travel experience with a dedicated chauffeur, tailored entirely around your plans and preferences.",
+    image: "/images/services/private-chuffeure.jpg",
   },
   {
-    title: "Luxury Airport Transfers Dubai",
-    desc: "24/7 airport pickup and drop-off services delivered with punctuality, discretion, and comfort.",
-    price: "From 100 AED",
-    image: "/images/s8.webp",
+    title: "Luxury Airport Transfers",
+    desc: "Smooth and dependable airport transfers focused on punctuality, comfort, and a stress-free start or finish to your journey.",
+    image: "/images/services/Laury-airport.jpg",
   },
   {
-    title: "Executive Bus & Coach Rental",
-    desc: "Luxury 20, 30 & 50-seater buses for corporate events, tours, and group chauffeur transport.",
-    price: "From 200 AED",
-    image: "/images/s7.webp",
+    title: "Executive Group Transport",
+    desc: "Professional chauffeur-led transport solutions for corporate groups, events, and private occasions with seamless coordination.",
+    image: "/images/services/Executive-group.jpg",
   },
 ];
 
@@ -60,7 +53,7 @@ export default function ServicesPage() {
       <Header />
 
       {/* Hero Section */}
-     <FleetHeroCarousel/>
+      <FleetHeroCarousel />
 
       {/* Booking Section */}
       <section className="py-12 bg-gray-50">
@@ -70,65 +63,61 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-12 bg-white">
-        <div className="max-w-6xl mx-auto px-4 space-y-12">
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 space-y-16">
           {services.map((service, index) => {
             const isEven = index % 2 === 0;
             const bgColor = isEven ? "bg-white" : "bg-[#BF9B30]";
-            const textColor = isEven ? "text-[#BF9B30]" : "text-white";
-            const imageFirst = isEven ? "" : "md:flex-row-reverse";
+            const textColor = isEven ? "text-[#0b1c39]" : "text-white";
+            const flexDirection = isEven ? "" : "md:flex-row-reverse";
 
             return (
               <motion.div
                 key={index}
-                className={`flex flex-col md:flex-row items-center gap-0 ${imageFirst} ${bgColor} rounded-xl overflow-hidden shadow-lg`}
-                initial={{ opacity: 0, y: 50 }}
+                className={`flex flex-col md:flex-row ${flexDirection} ${bgColor} rounded-2xl overflow-hidden shadow-lg`}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5 }}
               >
-                {/* Image */}
-                <div className="relative w-full md:w-1/2 h-[300px] md:h-[400px]">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <span
-                    className={`absolute bottom-0 left-0 px-4 py-2 font-semibold rounded-tr-lg ${
-                      isEven
-                        ? "bg-[#BF9B30] text-white"
-                        : "bg-[#0b1c39] text-white"
-                    }`}
-                  >
-                    {service.price}
-                  </span>
+                {/* Image Container - Fixed */}
+                <div className="relative w-full md:w-1/2 h-[300px] md:h-[380px]">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority={index === 0}
+                    />
+                  </div>
                 </div>
 
                 {/* Content */}
-                <div className={`w-full md:w-1/2 space-y-4 p-6 md:p-12 ${textColor}`}>
-                  <h2 className="text-2xl md:text-3xl font-bold uppercase">
+                <div
+                  className={`w-full md:w-1/2 p-8 md:p-14 flex flex-col justify-center space-y-5 ${textColor}`}
+                >
+                  <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wide">
                     {service.title}
                   </h2>
-                  <p className="text-base md:text-lg leading-relaxed">
+
+                  <p className="text-base md:text-lg leading-relaxed opacity-95">
                     {service.desc}
                   </p>
-                 <div className="flex flex-wrap gap-4 mt-4">
-  <Link href="/contact-us">
-    <button
-      className={`px-5 py-2 font-semibold rounded transition transform hover:scale-105 ${
-        isEven
-          ? "bg-[#BF9B30] text-white hover:opacity-90"
-          : "bg-white text-[#BF9B30] hover:bg-[#0b1c39] hover:text-white"
-      }`}
-    >
-      Book Now
-    </button>
-  </Link>
-</div>
 
+                  <div className="pt-4">
+                    <Link href="/contact-us">
+                      <button
+                        className={`px-6 py-3 rounded font-semibold transition-transform duration-300 hover:scale-105 ${isEven
+                          ? "bg-[#BF9B30] text-white hover:opacity-90"
+                          : "bg-white text-[#BF9B30] hover:bg-[#0b1c39] hover:text-white"
+                          }`}
+                      >
+                        Book Your Chauffeur
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             );

@@ -10,11 +10,11 @@ const fleetSlides = [
     title: "Luxury Business Travel",
   },
   {
-    image: "/images/background/s3.webp",
+    image: "/images/background/s3.jpg",
     title: "Premium Group Transportation",
   },
   {
-    image: "/images/background/s4.webp",
+    image: "/images/background/s4.jpg",
     title: "Elite Private Travel",
   },
 ];

@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import OnlyQualityForClients from "@/components/OnlyQualityForClients";
-import StatsSection from "@/components/StatsSection";
+import StatsSection2 from "@/components/StatsSection2";
 import React from "react";
 
 const AboutPage: React.FC = () => {
@@ -55,7 +55,7 @@ const AboutPage: React.FC = () => {
 
           </div>
 
-          <StatsSection />
+          <StatsSection2 />
         </div>
       </section>
 

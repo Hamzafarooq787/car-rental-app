@@ -59,7 +59,7 @@ export default function StatsSection() {
             <div className="text-[#BF9B30] text-4xl font-semibold mb-1">
               {counts[index]}
             </div>
-            <p className="text-gray-600 text-xs">{stat.label}</p>
+            <p className="text-white text-xs">{stat.label}</p>
           </div>
         ))}
       </div>

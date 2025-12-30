@@ -40,8 +40,9 @@ export default function HeroSection() {
 
           <p className="text-gray-200 max-w-2xl mb-8">
             Experience discreet, reliable and luxurious chauffeur services
-            tailored for business, leisure and special occasions.
+            tailored for business and special occasions.
           </p>
+
 
           {/* FORM BOX */}
           <div className="bg-white rounded-xl shadow-xl p-6 md:p-8">

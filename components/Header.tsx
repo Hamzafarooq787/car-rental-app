@@ -23,6 +23,8 @@ export default function Header() {
     { name: "Services", path: "/services" },
     { name: "Fleet", path: "/cars" },
     { name: "Contact", path: "/contact-us" },
+        { name: "Areas", path: "/areas" },
+
   ];
 
   return (

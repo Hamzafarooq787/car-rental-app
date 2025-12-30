@@ -31,7 +31,7 @@ export default function Footer() {
             </div>
 
             <a
-              href="/contact"
+              href="/contact-us"
               className="inline-block bg-white text-[#BF9B30] px-6 py-2 rounded-md text-sm font-semibold hover:bg-gray-100 transition"
             >
               Contact Us
