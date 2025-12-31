@@ -161,16 +161,16 @@ const FleetShowcase = () => {
               </div>
 
               {/* Hover Specs */}
-              <div className="absolute inset-0 bg-[#0b1c39]/95 px-6 py-8 opacity-0 group-hover:opacity-100 transition flex items-center">
+              <div className="absolute inset-0 bg-[#BF9B30]/95 px-6 py-8 opacity-0 group-hover:opacity-100 transition flex items-center">
                 <div className="w-full text-white">
-                  <h4 className="text-lg font-semibold mb-5 text-[#BF9B30]">
+                  <h4 className="text-lg font-semibold mb-5 text-[#ffffff]">
                     Vehicle Specifications
                   </h4>
 
                   <ul className="space-y-4 text-sm">
                     {car.specs.map((spec, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <span className="text-[#BF9B30] mt-0.5">
+                        <span className="text-[#ffffff] mt-0.5">
                           {spec.icon}
                         </span>
                         <div>
