@@ -7,7 +7,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import MarqueeLuxury from "./MarqueeLuxury";
 
 
 
@@ -16,7 +15,6 @@ export default function MarqueeSection() {
     <>
      
 
-       <MarqueeLuxury/>
       {/* FEATURES */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
