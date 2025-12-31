@@ -1,5 +1,6 @@
 'use client';
 import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -30,12 +31,12 @@ export default function Footer() {
               +44 7310 236707
             </div>
 
-            <a
+            <Link
               href="/contact-us"
               className="inline-block bg-white text-[#BF9B30] px-6 py-2 rounded-md text-sm font-semibold hover:bg-gray-100 transition"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -58,49 +59,49 @@ export default function Footer() {
               Airport Transfers
             </h4>
             <ul className="space-y-3 text-sm">
-              <li>Heathrow Airport</li>
-              <li>Gatwick Airport</li>
-              <li>Stansted Airport</li>
-              <li>Luton Airport</li>
-              <li>London City Airport</li>
+              <li><Link href="/services">Heathrow Airport</Link></li>
+              <li><Link href="/services">Gatwick Airport</Link></li>
+              <li><Link href="/services">Stansted Airport</Link></li>
+              <li><Link href="/services">Luton Airport</Link></li>
+              <li><Link href="/services">London City Airport</Link></li>
             </ul>
           </div>
 
-          {/* CHAUFFEUR SERVICES (moved here) */}
+          {/* CHAUFFEUR SERVICES */}
           <div>
             <h4 className="text-[#BF9B30] font-semibold mb-5">
               Chauffeur Services
             </h4>
             <ul className="space-y-3 text-sm">
-              <li>Airport Chauffeur Service</li>
-              <li>Corporate Travel</li>
-              <li>Long Distance Transfers</li>
-              <li>Executive Chauffeur Hire</li>
-              <li>Event & Business Travel</li>
+              <li><Link href="/services">Airport Chauffeur Service</Link></li>
+              <li><Link href="/services">Corporate Travel</Link></li>
+              <li><Link href="/services">Long Distance Transfers</Link></li>
+              <li><Link href="/services">Executive Chauffeur Hire</Link></li>
+              <li><Link href="/services">Event & Business Travel</Link></li>
             </ul>
           </div>
 
-          {/* CONTACT DETAILS (moved here) */}
+          {/* CONTACT DETAILS */}
           <div>
             <h4 className="text-[#BF9B30] font-semibold mb-5">
               Contact Details
             </h4>
 
             <div className="space-y-3 text-sm">
-              <p>
+              <Link href="/contact-us">  <p>
                 <strong className="text-[#BF9B30]">Address:</strong><br />
                 BL4 7LJ, Bolton<br />
                 Manchester, UK
               </p>
-
+              </Link>
               <p>
                 <strong className="text-[#BF9B30]">Email:</strong><br />
-                info@royalerides.co.uk
+                <Link href="/contact-us">info@royalerides.co.uk</Link>
               </p>
 
               <p>
                 <strong className="text-[#BF9B30]">Phone:</strong><br />
-                +44 7310 236707
+                <Link href="/contact-us">+44 7310 236707</Link>
               </p>
             </div>
           </div>
