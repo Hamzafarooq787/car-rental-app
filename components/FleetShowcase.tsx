@@ -2,37 +2,124 @@
 
 import React from "react";
 import Link from "next/link";
+import { Users, Luggage, CheckCircle, Briefcase } from "lucide-react";
+
+type CarSpec = {
+  label: string;
+  value: string;
+  icon: React.ReactNode;
+};
 
 type Car = {
   name: string;
   image: string;
-  details: string;
+  specs: CarSpec[];
 };
 
 const cars: Car[] = [
   {
     name: "Range Rover",
     image: "/images/cars/range-rover.png",
-    details:
-      "Range Rover delivers top-tier luxury with premium leather seats, panoramic sunroof, advanced off-road capability, and a smooth, powerful ride — perfect for VIP and executive travel.",
+    specs: [
+      {
+        label: "Passenger Capacity",
+        value: "Up to 3 passengers",
+        icon: <Users size={18} />,
+      },
+      {
+        label: "Luggage Capacity",
+        value: "2 large suitcases",
+        icon: <Luggage size={18} />,
+      },
+      {
+        label: "Interior Type",
+        value: "Premium leather executive cabin",
+        icon: <CheckCircle size={18} />,
+      },
+      {
+        label: "Ideal For",
+        value: "VIP & business travel",
+        icon: <Briefcase size={18} />,
+      },
+    ],
   },
   {
     name: "Mercedes-Benz E-Class Saloon",
     image: "/images/cars/e-class-saloon.png",
-    details:
-      "Mercedes-Benz E-Class Saloon offers refined comfort, intelligent safety features, ambient lighting, and a quiet, elegant ride ideal for corporate and business-class chauffeur services.",
+    specs: [
+      {
+        label: "Passenger Capacity",
+        value: "Up to 3 passengers",
+        icon: <Users size={18} />,
+      },
+      {
+        label: "Luggage Capacity",
+        value: "2 medium suitcases",
+        icon: <Luggage size={18} />,
+      },
+      {
+        label: "Interior Type",
+        value: "Luxury leather with ambient lighting",
+        icon: <CheckCircle size={18} />,
+      },
+      {
+        label: "Ideal For",
+        value: "Corporate & airport transfers",
+        icon: <Briefcase size={18} />,
+      },
+    ],
   },
   {
     name: "Mercedes-Benz V-Class",
     image: "/images/cars/v-class.png",
-    details:
-      "Mercedes-Benz V-Class is a luxury MPV with spacious seating, climate control, sliding doors, and premium interiors — ideal for families and group transportation.",
+    specs: [
+      {
+        label: "Passenger Capacity",
+        value: "Up to 6 passengers",
+        icon: <Users size={18} />,
+      },
+      {
+        label: "Luggage Capacity",
+        value: "5 large suitcases",
+        icon: <Luggage size={18} />,
+      },
+      {
+        label: "Interior Type",
+        value: "Spacious luxury MPV interior",
+        icon: <CheckCircle size={18} />,
+      },
+      {
+        label: "Ideal For",
+        value: "Families & group travel",
+        icon: <Briefcase size={18} />,
+      },
+    ],
   },
   {
     name: "Mercedes-Benz S-Class",
     image: "/images/cars/s-class.png",
-    details:
-      "Mercedes-Benz S-Class defines ultimate luxury with cutting-edge technology, massaging seats, ambient lighting, and world-class comfort for elite chauffeur experiences.",
+    specs: [
+      {
+        label: "Passenger Capacity",
+        value: "Up to 3 passengers",
+        icon: <Users size={18} />,
+      },
+      {
+        label: "Luggage Capacity",
+        value: "2 large suitcases",
+        icon: <Luggage size={18} />,
+      },
+      {
+        label: "Interior Type",
+        value: "Ultra-luxury with massage seats",
+        icon: <CheckCircle size={18} />,
+      },
+      {
+        label: "Ideal For",
+        value: "Elite chauffeur experience",
+        icon: <Briefcase size={18} />,
+      },
+    ],
   },
 ];
 
@@ -73,11 +160,27 @@ const FleetShowcase = () => {
                 </h3>
               </div>
 
-              {/* Hover */}
-              <div className="absolute inset-0 bg-[#BF9B30]/95 text-white px-6 flex items-center justify-center text-center opacity-0 group-hover:opacity-100 transition">
-                <p className="text-sm leading-relaxed">
-                  {car.details}
-                </p>
+              {/* Hover Specs */}
+              <div className="absolute inset-0 bg-[#0b1c39]/95 px-6 py-8 opacity-0 group-hover:opacity-100 transition flex items-center">
+                <div className="w-full text-white">
+                  <h4 className="text-lg font-semibold mb-5 text-[#BF9B30]">
+                    Vehicle Specifications
+                  </h4>
+
+                  <ul className="space-y-4 text-sm">
+                    {car.specs.map((spec, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="text-[#BF9B30] mt-0.5">
+                          {spec.icon}
+                        </span>
+                        <div>
+                          <p className="font-medium">{spec.label}</p>
+                          <p className="text-white/80">{spec.value}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           ))}
