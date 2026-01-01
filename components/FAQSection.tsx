@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Can I modify or cancel my booking?",
-    a: "Yes. Bookings can be modified or cancelled prior to pickup time, subject to our flexible cancellation policy.",
+    a: "3 hours before starting can cancel or change.",
   },
   {
     q: "Do you offer hourly chauffeur services?",

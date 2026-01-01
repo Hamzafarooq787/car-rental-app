@@ -24,7 +24,7 @@ const services: Service[] = [
   },
   {
     title: "Airport Transfers",
-    image: "/images/services/Laury-airport.jpg",
+    image: "/images/services/Laury-airport.jpeg",
   },
 ];
 

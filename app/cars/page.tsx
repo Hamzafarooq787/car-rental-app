@@ -1,287 +1,168 @@
 "use client";
 
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import React, { useState } from "react";
-import {
-  Users,
-  Luggage,
-  CheckCircle,
-  Briefcase,
-  Bus,
-  ChevronDown,
-  ChevronUp,
-  X,
-} from "lucide-react";
-
-type CarSpec = {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-};
+import Footer from "@/components/Footer";
+import { Users, Luggage, Briefcase, CheckCircle } from "lucide-react";
 
 type Car = {
   name: string;
+  subtitle: string;
   image: string;
-  specs: CarSpec[];
+  passengers: string;
+  smallLuggage: string;
+  mediumLuggage: string;
+  features: string[];
 };
 
 const cars: Car[] = [
   {
-    name: "Range Rover",
-    image: "/images/cars/range-rover.png",
-    specs: [
-      {
-        label: "Passenger Capacity",
-        value: "Up to 3 passengers",
-        icon: <Users size={18} />,
-      },
-      {
-        label: "Luggage Capacity",
-        value: "2 large suitcases",
-        icon: <Luggage size={18} />,
-      },
-      {
-        label: "Interior Type",
-        value: "Premium leather executive cabin",
-        icon: <CheckCircle size={18} />,
-      },
-      {
-        label: "Ideal For",
-        value: "VIP & business travel",
-        icon: <Briefcase size={18} />,
-      },
-    ],
-  },
-  {
-    name: "Mercedes-Benz E-Class Saloon",
+    name: "Mercedes E-Class",
+    subtitle: "Classic, Comfortable, Efficient",
     image: "/images/cars/e-class-saloon.png",
-    specs: [
-      {
-        label: "Passenger Capacity",
-        value: "Up to 3 passengers",
-        icon: <Users size={18} />,
-      },
-      {
-        label: "Luggage Capacity",
-        value: "2 medium suitcases",
-        icon: <Luggage size={18} />,
-      },
-      {
-        label: "Interior Type",
-        value: "Luxury leather with ambient lighting",
-        icon: <CheckCircle size={18} />,
-      },
-      {
-        label: "Ideal For",
-        value: "Corporate & airport transfers",
-        icon: <Briefcase size={18} />,
-      },
+    passengers: "3 passengers",
+    smallLuggage: "3 Small luggage",
+    mediumLuggage: "2 Medium luggage",
+    features: [
+      "Includes meet and greet",
+      "Complimentary bottled water",
+      "WI-FI in vehicle",
     ],
   },
   {
-    name: "Mercedes-Benz V-Class",
-    image: "/images/cars/v-class.png",
-    specs: [
-      {
-        label: "Passenger Capacity",
-        value: "Up to 6 passengers",
-        icon: <Users size={18} />,
-      },
-      {
-        label: "Luggage Capacity",
-        value: "5 large suitcases",
-        icon: <Luggage size={18} />,
-      },
-      {
-        label: "Interior Type",
-        value: "Spacious luxury MPV interior",
-        icon: <CheckCircle size={18} />,
-      },
-      {
-        label: "Ideal For",
-        value: "Families & group travel",
-        icon: <Briefcase size={18} />,
-      },
-    ],
-  },
-  {
-    name: "Mercedes-Benz S-Class",
+    name: "Mercedes S-Class",
+    subtitle: "Flagship Luxury Experience",
     image: "/images/cars/s-class.png",
-    specs: [
-      {
-        label: "Passenger Capacity",
-        value: "Up to 3 passengers",
-        icon: <Users size={18} />,
-      },
-      {
-        label: "Luggage Capacity",
-        value: "2 large suitcases",
-        icon: <Luggage size={18} />,
-      },
-      {
-        label: "Interior Type",
-        value: "Ultra-luxury with massage seats",
-        icon: <CheckCircle size={18} />,
-      },
-      {
-        label: "Ideal For",
-        value: "Elite chauffeur experience",
-        icon: <Briefcase size={18} />,
-      },
+    passengers: "3 passengers",
+    smallLuggage: "2 Small luggage",
+    mediumLuggage: "2 Medium luggage",
+    features: [
+      "Executive chauffeur",
+      "Luxury leather interior",
+      "Ultra-smooth ride",
     ],
   },
   {
-    name: "Mercedes Sprinter",
-    image: "/images/cars/sprinter.png",
-    specs: [
-      {
-        label: "Passenger Capacity",
-        value: "Up to 12 passengers",
-        icon: <Bus size={18} />,
-      },
-      {
-        label: "Luggage Capacity",
-        value: "Large group luggage space",
-        icon: <Luggage size={18} />,
-      },
-      {
-        label: "Interior Type",
-        value: "High-roof spacious interior",
-        icon: <CheckCircle size={18} />,
-      },
-      {
-        label: "Ideal For",
-        value: "Group & long-distance travel",
-        icon: <Briefcase size={18} />,
-      },
+    name: "Range Rover",
+    subtitle: "Luxury SUV Comfort",
+    image: "/images/cars/range-rover.png",
+    passengers: "3 passengers",
+    smallLuggage: "2 Small luggage",
+    mediumLuggage: "2 Medium luggage",
+    features: [
+      "VIP travel ready",
+      "Spacious premium cabin",
+      "Ideal for long journeys",
+    ],
+  },
+  {
+    name: "Mercedes V-Class",
+    subtitle: "Luxury Group Travel",
+    image: "/images/cars/v-class.png",
+    passengers: "6 passengers",
+    smallLuggage: "5 Small luggage",
+    mediumLuggage: "4 Medium luggage",
+    features: [
+      "Perfect for families & groups",
+      "Spacious seating layout",
+      "Ideal for airport transfers",
     ],
   },
 ];
 
-const CarPage: React.FC = () => {
-  const [expandedCar, setExpandedCar] = useState<number | null>(null);
-
-  const toggleCarExpansion = (index: number) => {
-    if (expandedCar === index) {
-      setExpandedCar(null);
-    } else {
-      setExpandedCar(index);
-    }
-  };
-
+export default function CarPage() {
   return (
     <>
       <Header />
 
-      {/* SUBHEADER */}
+      {/* HERO */}
       <section
-        className="relative h-[280px] sm:h-[320px] flex items-center justify-center"
+        className="relative h-[240px] sm:h-[280px] flex items-center justify-center"
         style={{
           backgroundImage: "url('/images/background/our-fleet.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/40" />
-        <h1 className="relative text-white text-3xl sm:text-4xl md:text-5xl font-semibold">
+        <div className="absolute inset-0 bg-black/50" />
+        <h1 className="relative text-white text-3xl sm:text-4xl font-semibold">
           Our Luxury Fleet
         </h1>
       </section>
 
-      {/* CARS GRID */}
-      <section className="py-12 md:py-20 bg-white">
+      {/* CARS */}
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center">
             {cars.map((car, index) => (
               <div
                 key={index}
-                className={`w-full max-w-[460px] relative group overflow-hidden rounded-2xl shadow-lg ${
-                  cars.length % 2 !== 0 && index === cars.length - 1
-                    ? "md:col-span-2 mx-auto"
-                    : ""
-                }`}
+                className="
+                  w-full max-w-[360px]
+                  bg-white
+                  rounded-xl
+                  border border-gray-200
+                  transition-all duration-300
+                  hover:-translate-y-1 hover:shadow-lg
+                "
               >
-                {/* IMAGE CONTAINER */}
-                <div className="relative h-[280px] sm:h-[320px] md:h-[420px] bg-gray-50">
-                  {/* IMAGE */}
-                  <div className="h-full w-full flex items-center justify-center p-6 md:p-8">
-                    <img
-                      src={car.image}
-                      alt={car.name}
-                      className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
+                {/* IMAGE */}
+                <div className="h-[200px] sm:h-[220px] flex items-center justify-center p-4 bg-white">
+                  <img
+                    src={car.image}
+                    alt={car.name}
+                    className="max-h-full object-contain"
+                  />
+                </div>
 
-                  {/* NAME - Always visible on image */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                    <h3 className="text-white font-semibold text-lg md:text-xl">
-                      {car.name}
-                    </h3>
-                  </div>
+                {/* CONTENT */}
+                <div className="relative px-6 py-8 text-center">
+                  {/* GOLD VERTICAL BORDERS */}
+                  <span className="absolute left-3 top-6 bottom-6 w-[2px] bg-[#BF9B30]" />
+                  <span className="absolute right-3 top-6 bottom-6 w-[2px] bg-[#BF9B30]" />
 
-                  {/* MOBILE TOGGLE BUTTON - Top right corner */}
-                  <button
-                    className="md:hidden absolute top-4 right-4 z-20 flex items-center justify-center w-10 h-10 rounded-full bg-[#BF9B30] text-white hover:bg-[#a88728] transition shadow-lg"
-                    onClick={() => toggleCarExpansion(index)}
-                    aria-label={
-                      expandedCar === index
-                        ? "Hide specifications"
-                        : "Show specifications"
-                    }
-                  >
-                    {expandedCar === index ? (
-                      <X size={22} />
-                    ) : (
-                      <ChevronDown size={22} />
-                    )}
-                  </button>
+                  {/* TITLE */}
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {car.name}
+                  </h3>
 
-                  {/* MOBILE SPECS OVERLAY - Same as desktop hover */}
-                  <div
-                    className={`md:hidden absolute inset-0 bg-[#BF9B30]/95 p-6 transition-all duration-300 flex items-center ${
-                      expandedCar === index
-                        ? "opacity-100 z-10"
-                        : "opacity-0 pointer-events-none"
-                    }`}
-                  >
-                    <div className="w-full text-white max-h-full overflow-y-auto">
-                      <h4 className="text-lg font-semibold mb-6 text-white">
-                        Vehicle Specifications
-                      </h4>
-                      <ul className="space-y-4 text-sm">
-                        {car.specs.map((spec, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <span className="text-white mt-0.5">{spec.icon}</span>
-                            <div>
-                              <p className="font-medium">{spec.label}</p>
-                              <p className="text-white/80">{spec.value}</p>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
+                  {/* SUBTITLE */}
+                  <p className="text-sm text-gray-600 mt-1">
+                    {car.subtitle}
+                  </p>
+
+                  {/* ICON INFO */}
+                  <div className="mt-6 space-y-3 text-sm text-gray-700">
+                    <div className="flex justify-center items-center gap-2">
+                      <Users size={16} />
+                      <span>{car.passengers}</span>
+                    </div>
+
+                    <div className="flex justify-center items-center gap-2">
+                      <Luggage size={16} />
+                      <span>{car.smallLuggage}</span>
+                    </div>
+
+                    <div className="flex justify-center items-center gap-2">
+                      <Briefcase size={16} />
+                      <span>{car.mediumLuggage}</span>
                     </div>
                   </div>
 
-                  {/* DESKTOP HOVER SPECS */}
-                  <div className="hidden md:block absolute inset-0 bg-[#BF9B30]/95 px-8 md:px-10 py-6 md:py-8 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center">
-                    <div className="w-full text-white">
-                      <h4 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-white">
-                        Vehicle Specifications
-                      </h4>
-                      <ul className="space-y-3 md:space-y-4 text-sm">
-                        {car.specs.map((spec, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <span className="text-white mt-0.5">{spec.icon}</span>
-                            <div>
-                              <p className="font-medium">{spec.label}</p>
-                              <p className="text-white/80">{spec.value}</p>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                  {/* FEATURES */}
+                  <ul className="mt-6 space-y-3 text-sm text-gray-700">
+                    {car.features.map((feature, i) => (
+                      <li
+                        key={i}
+                        className="flex justify-center items-center gap-2"
+                      >
+                        <CheckCircle
+                          size={16}
+                          className="text-[#BF9B30]"
+                        />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
@@ -292,6 +173,4 @@ const CarPage: React.FC = () => {
       <Footer />
     </>
   );
-};
-
-export default CarPage;
+}

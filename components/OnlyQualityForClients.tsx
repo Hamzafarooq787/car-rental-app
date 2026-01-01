@@ -20,7 +20,7 @@ export default function OnlyQualityForClients() {
 
         <div className="h-[420px] lg:h-[500px] rounded-xl overflow-hidden">
           <img
-            src="/images/background/5.jpg"
+            src="/images/background/5.jpeg"
             alt="Only Quality For Clients"
             className="w-full h-full object-cover"
           />

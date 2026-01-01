@@ -6,7 +6,7 @@ const fleetSlides = [
     title: "Executive Chauffeur Experience",
   },
   {
-    image: "/images/background/s2.webp",
+    image: "/images/background/s2.jpeg",
     title: "Luxury Business Travel",
   },
   {

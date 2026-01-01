@@ -38,7 +38,7 @@ const services: Service[] = [
   {
     title: "Luxury Airport Transfers",
     desc: "Smooth and dependable airport transfers focused on punctuality, comfort, and a stress-free start or finish to your journey.",
-    image: "/images/services/Laury-airport.jpg",
+    image: "/images/services/Laury-airport.jpeg",
   },
   {
     title: "Executive Group Transport",

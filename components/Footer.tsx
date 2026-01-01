@@ -58,13 +58,17 @@ export default function Footer() {
             <h4 className="text-[#BF9B30] font-semibold mb-5">
               Airport Transfers
             </h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link href="/services">Heathrow Airport</Link></li>
-              <li><Link href="/services">Gatwick Airport</Link></li>
-              <li><Link href="/services">Stansted Airport</Link></li>
-              <li><Link href="/services">Luton Airport</Link></li>
-              <li><Link href="/services">London City Airport</Link></li>
-            </ul>
+          <ul className="space-y-3 text-sm">
+  <li><Link href="/services">From Manchester to Heathrow Airport (London)</Link></li>
+  <li><Link href="/services">From Manchester to Gatwick Airport (London)</Link></li>
+  <li><Link href="/services">From Manchester to Birmingham Airport</Link></li>
+  <li><Link href="/services">From Manchester to Liverpool John Lennon Airport</Link></li>
+  <li><Link href="/services">From Manchester to Leeds Bradford Airport</Link></li>
+  <li><Link href="/services">From Manchester to Newcastle International Airport</Link></li>
+  <li><Link href="/services">From Manchester to Glasgow Airport</Link></li>
+  <li><Link href="/services">From Manchester to Edinburgh Airport</Link></li>
+</ul>
+
           </div>
 
           {/* CHAUFFEUR SERVICES */}

@@ -63,7 +63,7 @@ export default function MarqueeSection() {
             {/* CENTER IMAGE */}
             <div className="flex justify-center">
               <img
-                src="/images/misc/car.png"
+                src="/images/cars/mid.png"
                 alt="Luxury Vehicle"
                 className="max-w-[85%] md:max-w-[75%] lg:max-w-[80%]"
               />
@@ -108,7 +108,7 @@ export default function MarqueeSection() {
       <section
         className="relative py-20"
         style={{
-          backgroundImage: "url('/images/background/2.jpg')",
+          backgroundImage: "url('/images/background/2.jpeg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
