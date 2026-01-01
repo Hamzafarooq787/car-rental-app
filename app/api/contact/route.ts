@@ -1,11 +1,17 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import nodemailer from "nodemailer";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        { status: 503 }
+      );
+    }
+
     const { name, email, phone, message } = await req.json();
 
     if (!name || !email || !message) {
@@ -15,13 +21,12 @@ export async function POST(req: Request) {
       );
     }
 
-    // 1️⃣ Admin notification (Resend)
     await resend.emails.send({
-      from: "Royal Rides <no-reply@yourdomain.com>",
+      from: "Royal Rides <no-reply@royalerides.co.uk>",
       to: ["noorulainkashmiri00@gmail.com"],
-      subject: "New Contact Message",
+      subject: "New Contact Enquiry",
       html: `
-        <h2>New Contact Message</h2>
+        <h3>New Contact Message</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone || "N/A"}</p>
@@ -29,50 +34,11 @@ export async function POST(req: Request) {
       `,
     });
 
-    // 2️⃣ User + client email (Nodemailer)
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: Number(process.env.EMAIL_PORT),
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    // User email
-    await transporter.sendMail({
-      from: `"Royal Rides" <${process.env.EMAIL_USER}>`,
-      to: email,
-      replyTo: process.env.CLIENT_EMAIL,
-      subject: "We received your enquiry",
-      html: `
-        <p>Hi ${name},</p>
-        <p>Thanks for contacting Royal Rides.</p>
-        <p><strong>Your message:</strong></p>
-        <p>${message}</p>
-      `,
-    });
-
-    // Client copy
-    await transporter.sendMail({
-      from: `"Royal Rides Website" <${process.env.EMAIL_USER}>`,
-      to: process.env.CLIENT_EMAIL,
-      subject: "New Website Enquiry",
-      html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "N/A"}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    });
-
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Contact API error:", error);
+    console.error("Contact API Error:", error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: "Internal Server Error" },
       { status: 500 }
     );
   }
