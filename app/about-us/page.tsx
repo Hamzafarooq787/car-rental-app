@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import MarqueeSection from "@/components/MarqueeSection";
 import OnlyQualityForClients from "@/components/OnlyQualityForClients";
 import StatsSection2 from "@/components/StatsSection2";
 import React from "react";
@@ -82,63 +83,7 @@ const AboutPage: React.FC = () => {
 
       <OnlyQualityForClients />
 
-      {/* FEATURES */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-4xl font-bold text-[#0b1c39] mb-3">
-              Our Chauffeur Standards
-            </h2>
-            <p className="text-gray-500 text-base leading-relaxed">
-              Every detail is carefully considered to deliver a premium travel experience.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-10">
-
-            {/* LEFT */}
-            <div className="space-y-10">
-              <Feature
-                icon="fa-trophy"
-                title="First-Class Chauffeur Service"
-                text="Professional chauffeurs delivering excellence, discretion, and reliability."
-              />
-              <Feature
-                icon="fa-road"
-                title="24/7 Chauffeur Availability"
-                text="Available day and night to support your travel needs without compromise."
-              />
-            </div>
-
-            {/* IMAGE */}
-            <div className="flex justify-center">
-              <img
-                src="/images/misc/car.png"
-                alt="Luxury Vehicle"
-                className="max-w-[85%] md:max-w-[75%] lg:max-w-[80%] h-auto"
-              />
-            </div>
-
-            {/* RIGHT */}
-            <div className="space-y-10">
-              <Feature
-                icon="fa-tag"
-                title="Transparent Premium Pricing"
-                text="Clear pricing with no hidden costs, reflecting true value."
-                reverse
-              />
-              <Feature
-                icon="fa-location-dot"
-                title="Door-to-Door Convenience"
-                text="Seamless pickup and drop-off tailored to your schedule."
-                reverse
-              />
-            </div>
-
-          </div>
-        </div>
-      </section>
+     <MarqueeSection/>
 
       <Footer />
     </>
