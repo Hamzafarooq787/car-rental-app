@@ -15,9 +15,7 @@ const areas: Area[] = [
   { name: "Leeds", image: "/images/areas/leeds.jpg" },
   { name: "Newcastle", image: "/images/areas/newcastle.avif" },
   { name: "Birmingham", image: "/images/areas/birmingham.jpg" },
-  { name: "Paris", image: "/images/areas/paris.jpg" },
-  { name: "Barcelona", image: "/images/areas/barcelona.webp" },
-  { name: "Dubai", image: "/images/areas/dubai.webp" },
+  
 ];
 
 export default function AreasPage() {

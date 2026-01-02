@@ -93,8 +93,7 @@ export default function Footer() {
 
             <div className="space-y-3 text-sm">
               <Link href="/contact-us">  <p>
-                <strong className="text-[#BF9B30]">Address:</strong><br />
-                BL4 7LJ, Bolton<br />
+                <br /><strong className="text-[#BF9B30]">Address:</strong><br />
                 Manchester, UK
               </p>
               </Link>

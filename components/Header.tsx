@@ -40,7 +40,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img
-              src="/images/logo.png"
+              src="/images/logo-2.png"
               alt="Luxury Chauffeur Service"
               className="h-8 w-auto brightness-0 text-[#Bf9b30] sepia saturate-[400%] hue-rotate-[20deg]"
             />

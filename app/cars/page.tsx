@@ -29,6 +29,19 @@ const cars: Car[] = [
     ],
   },
   {
+    name: "Mercedes V-Class",
+    subtitle: "Luxury Group Travel",
+    image: "/images/cars/v-class.png",
+    passengers: "6 passengers",
+    smallLuggage: "5 Small luggage",
+    mediumLuggage: "4 Medium luggage",
+    features: [
+      "Perfect for families & groups",
+      "Spacious seating layout",
+      "Ideal for airport transfers",
+    ],
+  },
+  {
     name: "Mercedes S-Class",
     subtitle: "Flagship Luxury Experience",
     image: "/images/cars/s-class.png",
@@ -55,19 +68,6 @@ const cars: Car[] = [
     ],
   },
   {
-    name: "Mercedes V-Class",
-    subtitle: "Luxury Group Travel",
-    image: "/images/cars/v-class.png",
-    passengers: "6 passengers",
-    smallLuggage: "5 Small luggage",
-    mediumLuggage: "4 Medium luggage",
-    features: [
-      "Perfect for families & groups",
-      "Spacious seating layout",
-      "Ideal for airport transfers",
-    ],
-  },
-  {
     name: "Mercedes Sprinter",
     subtitle: "Executive Group & Corporate Transport",
     image: "/images/cars/sprinter.png",
@@ -91,7 +91,7 @@ export default function CarPage() {
       <section
         className="relative h-[240px] sm:h-[280px] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/images/background/our-fleet.webp')",
+          backgroundImage: "url('/images/background/6.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -103,23 +103,23 @@ export default function CarPage() {
       </section>
 
       {/* FLEET */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
             {cars.map((car, index) => {
               const isLast = index === cars.length - 1;
 
               return (
                 <div
                   key={index}
-                  className={`
-                    flex justify-center
-                    ${isLast ? "sm:col-span-2" : ""}
-                  `}
+                  className={`flex justify-center ${
+                    isLast ? "sm:col-span-2" : ""
+                  }`}
                 >
+                  {/* CARD */}
                   <div
                     className="
-                      w-full max-w-[360px]
+                      w-full max-w-[420px]
                       bg-white
                       rounded-xl
                       border border-gray-200
@@ -128,16 +128,16 @@ export default function CarPage() {
                     "
                   >
                     {/* IMAGE */}
-                    <div className="h-[200px] sm:h-[220px] flex items-center justify-center p-4 bg-white">
+                    <div className="h-[240px] sm:h-[260px] flex items-center justify-center p-6 bg-white">
                       <img
                         src={car.image}
                         alt={car.name}
-                        className="max-h-full object-contain"
+                        className="max-h-full object-contain scale-105"
                       />
                     </div>
 
                     {/* CONTENT */}
-                    <div className="relative px-6 py-8 text-center">
+                    <div className="relative px-7 py-9 text-center">
                       {/* GOLD LINES */}
                       <span className="absolute left-3 top-6 bottom-6 w-[2px] bg-[#BF9B30]" />
                       <span className="absolute right-3 top-6 bottom-6 w-[2px] bg-[#BF9B30]" />

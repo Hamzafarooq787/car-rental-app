@@ -13,7 +13,7 @@ const AboutPage: React.FC = () => {
       <section
         className="relative h-[320px] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/images/background/subheader.jpg')",
+          backgroundImage: "url('/images/background/subheader.jpeg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

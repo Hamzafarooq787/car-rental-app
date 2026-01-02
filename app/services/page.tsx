@@ -43,7 +43,7 @@ const services: Service[] = [
   {
     title: "Executive Group Transport",
     desc: "Professional chauffeur-led transport solutions for corporate groups, events, and private occasions with seamless coordination.",
-    image: "/images/services/Executive-group.jpg",
+    image: "/images/services/Executive-group.jpeg",
   },
 ];
 
