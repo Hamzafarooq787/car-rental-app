@@ -45,13 +45,25 @@ export default function Footer() {
       <footer className="bg-[#111111] text-gray-300 pt-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 pb-16">
 
-          {/* ABOUT */}
-          <div>
-            <p className="text-sm leading-relaxed mb-6">
-              Royalerides provides premium chauffeur-driven transport across the UK.
-              We focus on punctuality, discretion, and comfort for every journey.
-            </p>
-          </div>
+          {/* Logo aur About section */}
+<div className="flex flex-col items-start">
+  {/* Logo */}
+   <Link href="/" className="flex items-center mb-6"> {/* mb-4 se mb-6 (more space) */}
+    <img
+      src="/images/logo-2.png"
+      alt="Luxury Chauffeur Service"
+      className="block h-[90px] w-auto object-contain" /* h-[70px] se h-[90px] bara kiya */
+    />
+  </Link>
+
+  {/* ABOUT */}
+  <div>
+    <p className="text-sm leading-relaxed mb-6">
+      Royalerides provides premium chauffeur-driven transport across the UK.
+      We focus on punctuality, discretion, and comfort for every journey.
+    </p>
+  </div>
+</div>
 
           {/* AIRPORT TRANSFERS */}
           <div>

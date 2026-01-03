@@ -54,13 +54,13 @@ export default function ServicesPage() {
 
       {/* Hero Section */}
       <FleetHeroCarousel />
-
-      {/* Booking Section */}
+{/* 
+      Booking Section
       <section className="py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
           <BookingSection />
         </div>
-      </section>
+      </section> */}
 
       {/* Services Section */}
       <section className="py-16 bg-white">
