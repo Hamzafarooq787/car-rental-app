@@ -7,18 +7,9 @@ import {
 } from "@/components/ui/carousel";
 
 const items = [
-  "Executive Sedans",
-  "Luxury SUVs",
-  "Business Class Vans",
-  "Prestige Vehicles",
-  "Airport Transfers",
-  "Corporate Travel",
-  "Event Chauffeurs",
-  "Hourly Hire",
-  "VIP Services",
-  "Long Distance Travel",
-  "Luxury Experience",
-  "Elite Chauffeur",
+  "Business Class",
+  "First Class Van",
+  "First Class",
 ];
 
 export default function MarqueeLuxury() {
