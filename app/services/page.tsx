@@ -18,7 +18,7 @@ const services: Service[] = [
   {
     title: "Executive Chauffeur Service",
     desc: "A refined chauffeur experience designed for professionals who value discretion, comfort, and reliability for every journey.",
-    image: "/images/services/executive-chaffeur.jpg",
+    image: "/images/services/Executive-chaffeur.jpg",
   },
   {
     title: "Professional Chauffeur Hire",
@@ -43,7 +43,7 @@ const services: Service[] = [
   {
     title: "Executive Group Transport",
     desc: "Professional chauffeur-led transport solutions for corporate groups, events, and private occasions with seamless coordination.",
-    image: "/images/services/executive-group.jpeg",
+    image: "/images/services/Executive_group.jpeg",
   },
 ];
 
