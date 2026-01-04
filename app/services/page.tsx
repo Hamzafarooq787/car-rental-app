@@ -18,7 +18,7 @@ const services: Service[] = [
   {
     title: "Executive Chauffeur Service",
     desc: "A refined chauffeur experience designed for professionals who value discretion, comfort, and reliability for every journey.",
-    image: "/images/services/Executive-chaffeur.jpg",
+    image: "/images/services/Executive_chaffeur.jpg",
   },
   {
     title: "Professional Chauffeur Hire",
