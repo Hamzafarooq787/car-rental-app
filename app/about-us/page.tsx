@@ -10,25 +10,26 @@ const AboutPage: React.FC = () => {
     <>
       <Header />
 
-      {/* SUBHEADER */}
   <section
   className="
     relative
-    h-[300px] md:h-[320px]
+    h-[300px] md:h-[420px]
     overflow-hidden
     flex items-center justify-center
-    pt-12 lg:pt-20
-    bg-[url('/images/background/subheader.jpeg')]
+     lg:pt-20
+    bg-[url('/images/background/subheader.png')]
     bg-cover
-    bg-center
-    lg:bg-[position:center_75%]
-  "
+    bg-[position:center_65%]
+    lg:bg-[position:center_65%]
+"
 >
-  <div className="absolute inset-0 bg-black/40" />
-  <h1 className="relative text-white text-4xl md:text-5xl font-semibold">
-    About Us
-  </h1>
-</section>
+
+
+        <div className="absolute inset-0 bg-black/40" />
+        <h1 className="relative text-white text-4xl md:text-5xl font-semibold">
+          About Us
+        </h1>
+      </section>
 
 
 
@@ -86,13 +87,13 @@ const AboutPage: React.FC = () => {
             We specialise in premium chauffeur-driven transport, delivering seamless experiences for business travel, airport transfers, corporate events, and private occasions.
           </h2>
 
-          
+
         </div>
       </section>
 
       <OnlyQualityForClients />
 
-     <MarqueeSection/>
+      <MarqueeSection />
 
       <Footer />
     </>

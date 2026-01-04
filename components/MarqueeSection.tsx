@@ -77,33 +77,8 @@ export default function MarqueeSection() {
 </section>
 
 
-      {/* STATS */}
-      <section
-        className="relative py-20"
-        style={{
-          backgroundImage: "url('/images/background/2.jpeg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/65" />
-        <div className="relative max-w-6xl mx-auto px-6">
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-16">
-            <h2 className="text-white text-3xl md:text-4xl font-semibold">
-              A refined fleet of{" "}
-              <span className="text-[#BF9B30]">executive</span> and{" "}
-              <span className="text-[#BF9B30]">luxury chauffeur vehicles</span>
-            </h2>
-
-            <p className="text-gray-300 text-sm md:text-base">
-              Designed for business travel, airport transfers and private journeys.
-            </p>
-          </div>
-
-          <StatsSection />
-        </div>
-      </section>
+      
+    
     </>
   );
 }
