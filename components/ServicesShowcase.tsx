@@ -12,7 +12,7 @@ type Service = {
 const services: Service[] = [
   {
     title: "Executive Chauffeur Service",
-    image: "/images/services/executive-chaffeur.jpg",
+    image: "/images/services/Executive_chaffeur.jpg",
   },
   {
     title: "Professional Chauffeur Hire",
