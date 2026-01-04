@@ -66,7 +66,7 @@ export default function HeroSection() {
           onClick={() => setIsOpen(true)}
           className="bg-[#BF9B30] text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition"
         >
-          Check Availability
+          Get Quote
         </button>
 
         <div className="h-24" />
@@ -166,59 +166,41 @@ export default function HeroSection() {
               Check Availability
             </h3>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setIsOpen(false);
-              }}
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <input
-                  required
-                  placeholder="Pick-up location"
-                  className="border rounded-md px-3 py-2"
-                  onChange={(e) =>
-                    setFormData({ ...formData, pickup: e.target.value })
-                  }
-                />
+            <form onSubmit={(e) => e.preventDefault()}>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    {[
+      { placeholder: "Pick-up location", key: "pickup", type: "text" },
+      { placeholder: "Drop-off location", key: "dropoff", type: "text" },
+      { key: "pickupDate", type: "date" },
+      { key: "pickupTime", type: "time" },
+    ].map((field, i) => (
+      <input
+        key={i}
+        required
+        type={field.type}
+        placeholder={field.placeholder}
+        className="w-full border border-gray-300 bg-white text-black placeholder-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
+        onChange={(e) =>
+          setFormData({ ...formData, [field.key]: e.target.value })
+        }
+      />
+    ))}
+  </div>
 
-                <input
-                  required
-                  placeholder="Drop-off location"
-                  className="border rounded-md px-3 py-2"
-                  onChange={(e) =>
-                    setFormData({ ...formData, dropoff: e.target.value })
-                  }
-                />
+  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+    <button
+      type="submit"
+      onClick={() => {
+        console.log("Make Booking", formData);
+        setIsOpen(false);
+      }}
+      className="bg-[#BF9B30] text-white px-8 py-2 rounded-md font-semibold hover:opacity-90 transition"
+    >
+      Make Booking
+    </button>
+  </div>
+</form>
 
-                <input
-                  type="date"
-                  required
-                  className="border rounded-md px-3 py-2"
-                  onChange={(e) =>
-                    setFormData({ ...formData, pickupDate: e.target.value })
-                  }
-                />
-
-                <input
-                  type="time"
-                  required
-                  className="border rounded-md px-3 py-2"
-                  onChange={(e) =>
-                    setFormData({ ...formData, pickupTime: e.target.value })
-                  }
-                />
-              </div>
-
-              <div className="mt-6 text-center">
-                <button
-                  type="submit"
-                  className="bg-[#BF9B30] text-white px-8 py-2 rounded-md font-semibold"
-                >
-                  Submit Request
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       )}

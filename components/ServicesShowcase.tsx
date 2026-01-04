@@ -12,7 +12,7 @@ type Service = {
 const services: Service[] = [
   {
     title: "Executive Chauffeur Service",
-    image: "/images/services/Executive-Chaffeur.jpg",
+    image: "/images/services/executive-chaffeur.jpg",
   },
   {
     title: "Professional Chauffeur Hire",
@@ -20,11 +20,11 @@ const services: Service[] = [
   },
   {
     title: "Luxury MPV & Van Service",
-    image: "/images/services/MPV-Van.jpg",
+    image: "/images/services/MPV-Van.jpeg",
   },
   {
     title: "Airport Transfers",
-    image: "/images/services/Laury-airport.jpeg",
+    image: "/images/services/luxury-airport-transfer.jpeg",
   },
 ];
 

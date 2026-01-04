@@ -11,19 +11,28 @@ const AboutPage: React.FC = () => {
       <Header />
 
       {/* SUBHEADER */}
-      <section
-        className="relative h-[320px] flex items-center justify-center"
-        style={{
-          backgroundImage: "url('/images/background/subheader.jpeg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-        <h1 className="relative text-white text-4xl md:text-5xl font-semibold">
-          About Us
-        </h1>
-      </section>
+  <section
+  className="
+    relative
+    h-[300px] md:h-[320px]
+    overflow-hidden
+    flex items-center justify-center
+    pt-12 lg:pt-20
+    bg-[url('/images/background/subheader.jpeg')]
+    bg-cover
+    bg-center
+    lg:bg-[position:center_75%]
+  "
+>
+  <div className="absolute inset-0 bg-black/40" />
+  <h1 className="relative text-white text-4xl md:text-5xl font-semibold">
+    About Us
+  </h1>
+</section>
+
+
+
+
 
       {/* INTRO */}
       <section className="py-24 bg-white">

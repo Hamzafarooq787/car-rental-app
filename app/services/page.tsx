@@ -18,7 +18,7 @@ const services: Service[] = [
   {
     title: "Executive Chauffeur Service",
     desc: "A refined chauffeur experience designed for professionals who value discretion, comfort, and reliability for every journey.",
-    image: "/images/services/Executive-Chaffeur.jpg",
+    image: "/images/services/executive-chaffeur.jpg",
   },
   {
     title: "Professional Chauffeur Hire",
@@ -28,22 +28,22 @@ const services: Service[] = [
   {
     title: "Luxury MPV & Van Chauffeur Service",
     desc: "Spacious and comfortable vehicles ideal for families, groups, or additional luggage, delivered with a premium service standard.",
-    image: "/images/services/MPV-Van.jpg",
+    image: "/images/services/MPV-Van.jpeg",
   },
   {
     title: "Private Chauffeur Experiences",
     desc: "A calm, personalised travel experience with a dedicated chauffeur, tailored entirely around your plans and preferences.",
-    image: "/images/services/private-chuffeure.jpg",
+    image: "/images/services/private-chuffeure.webp",
   },
   {
     title: "Luxury Airport Transfers",
     desc: "Smooth and dependable airport transfers focused on punctuality, comfort, and a stress-free start or finish to your journey.",
-    image: "/images/services/Laury-airport.jpeg",
+    image: "/images/services/luxury-airport-transfer.jpeg",
   },
   {
     title: "Executive Group Transport",
     desc: "Professional chauffeur-led transport solutions for corporate groups, events, and private occasions with seamless coordination.",
-    image: "/images/services/Executive-group.jpeg",
+    image: "/images/services/executive-group.jpeg",
   },
 ];
 

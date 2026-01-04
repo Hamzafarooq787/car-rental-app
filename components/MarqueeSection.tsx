@@ -29,60 +29,53 @@ export default function MarqueeSection() {
       </p>
     </div>
 
-    {/* Modern Cards */}
+    {/* Gold Cards */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <div className="group p-6 rounded-2xl border border-gray-100 hover:border-[#BF9B30] transition">
-        <div className="w-10 h-10 mb-5 flex items-center justify-center rounded-full bg-[#BF9B30]/10 text-[#BF9B30]">
-          <i className="fa-solid fa-trophy text-sm"></i>
-        </div>
-        <h4 className="font-semibold text-[#0b1c39] mb-2">
-          First-Class Chauffeur Service
-        </h4>
-        <p className="text-gray-500 text-sm leading-relaxed">
-          Every journey delivered with professionalism, polish and attention to detail.
-        </p>
-      </div>
+      {[
+        {
+          icon: "fa-trophy",
+          title: "First-Class Chauffeur Service",
+          desc: "Every journey delivered with professionalism, polish and attention to detail.",
+        },
+        {
+          icon: "fa-clock",
+          title: "24/7 Availability",
+          desc: "Chauffeur services available around the clock, whenever you need them.",
+        },
+        {
+          icon: "fa-tag",
+          title: "Transparent Pricing",
+          desc: "Clear, premium pricing with no hidden charges or surprises.",
+        },
+        {
+          icon: "fa-location-dot",
+          title: "Door-to-Door Convenience",
+          desc: "Seamless pickup and drop-off designed around your schedule.",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="group p-6 rounded-2xl bg-[#BF9B30] shadow-lg hover:scale-[1.02] transition"
+        >
+          <div className="w-10 h-10 mb-5 flex items-center justify-center rounded-full bg-white/20 text-white">
+            <i className={`fa-solid ${item.icon} text-sm`}></i>
+          </div>
 
-      <div className="group p-6 rounded-2xl border border-gray-100 hover:border-[#BF9B30] transition">
-        <div className="w-10 h-10 mb-5 flex items-center justify-center rounded-full bg-[#BF9B30]/10 text-[#BF9B30]">
-          <i className="fa-solid fa-clock text-sm"></i>
-        </div>
-        <h4 className="font-semibold text-[#0b1c39] mb-2">
-          24/7 Availability
-        </h4>
-        <p className="text-gray-500 text-sm leading-relaxed">
-          Chauffeur services available around the clock, whenever you need them.
-        </p>
-      </div>
+          <h4 className="font-semibold text-white mb-2">
+            {item.title}
+          </h4>
 
-      <div className="group p-6 rounded-2xl border border-gray-100 hover:border-[#BF9B30] transition">
-        <div className="w-10 h-10 mb-5 flex items-center justify-center rounded-full bg-[#BF9B30]/10 text-[#BF9B30]">
-          <i className="fa-solid fa-tag text-sm"></i>
+          <p className="text-white/90 text-sm leading-relaxed">
+            {item.desc}
+          </p>
         </div>
-        <h4 className="font-semibold text-[#0b1c39] mb-2">
-          Transparent Pricing
-        </h4>
-        <p className="text-gray-500 text-sm leading-relaxed">
-          Clear, premium pricing with no hidden charges or surprises.
-        </p>
-      </div>
-
-      <div className="group p-6 rounded-2xl border border-gray-100 hover:border-[#BF9B30] transition">
-        <div className="w-10 h-10 mb-5 flex items-center justify-center rounded-full bg-[#BF9B30]/10 text-[#BF9B30]">
-          <i className="fa-solid fa-location-dot text-sm"></i>
-        </div>
-        <h4 className="font-semibold text-[#0b1c39] mb-2">
-          Door-to-Door Convenience
-        </h4>
-        <p className="text-gray-500 text-sm leading-relaxed">
-          Seamless pickup and drop-off designed around your schedule.
-        </p>
-      </div>
+      ))}
 
     </div>
   </div>
 </section>
+
 
       {/* STATS */}
       <section
