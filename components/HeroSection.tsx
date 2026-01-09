@@ -2,6 +2,14 @@
 
 import { useState } from "react";
 
+const fleetSlides = [
+  { image: "/images/background/s1.webp", title: "Executive Chauffeur Experience" },
+  { image: "/images/background/s2.jpeg", title: "Luxury Business Travel" },
+  { image: "/images/background/s3.jpg", title: "Premium Group Transportation" },
+  { image: "/images/background/s4.jpg", title: "Elite Private Travel" },
+  { image: "/images/background/1.jpeg", title: "Private Travel" },
+];
+
 export default function HeroSection() {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -12,198 +20,225 @@ export default function HeroSection() {
   });
 
   return (
-    <section
-      id="section-hero"
-      className="relative bg-cover bg-no-repeat"
-      style={{
-        backgroundImage: "url('/images/background/1.jpeg')",
-        backgroundPosition: "60% 60%",
-      }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-
-      {/* CONTENT */}
-      <div className="relative max-w-6xl mx-auto px-6">
-        <div className="h-24" />
-        <div className="h-24" />
-
-        <h1 className="text-white text-3xl md:text-4xl font-bold mb-4 leading-snug">
-          Executive Chauffeur Service
-          <br />
-          <span className="text-[#BF9B30] font-semibold">
-            crafted for comfort and discretion
-          </span>
-        </h1>
-
-        <p className="text-gray-300 max-w-2xl mb-6 text-sm md:text-base leading-relaxed">
-          Travel with confidence using our premium chauffeur-driven vehicles.
-          Every journey is managed by experienced professionals who prioritise
-          punctuality, privacy, and refined service.
-        </p>
-
-        {/* CONTACT INFO (NO EMOJIS) */}
-        <div className="text-gray-200 mb-8 space-y-2">
-          <p>
-            <a
-              href="mailto:info@royalerides.co.uk"
-              className="hover:underline text-lg"
-            >
-              info@royalerides.co.uk
-            </a>
-          </p>
-          <p>
-            <a
-              href="tel:+447310236707"
-              className="hover:underline text-lg"
-            >
-              +44 7310 236707
-            </a>
-          </p>
-        </div>
-
-        <button
-          onClick={() => setIsOpen(true)}
-          className="bg-[#BF9B30] text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition"
+    <section id="section-hero" className="relative overflow-hidden">
+      {/* ================= BACKGROUND CAROUSEL ================= */}
+      <div className="relative h-[500px] sm:h-[450px] md:h-[500px] lg:h-[550px] overflow-hidden">
+        <div
+          className="absolute inset-0 flex animate-fleet-left"
+          style={{ width: `${fleetSlides.length * 100 * 2}vw` }}
         >
-          Get Quote
-        </button>
 
-        <div className="h-24" />
-
-        {/* TIMELINE */}
-        <div className="relative text-white mt-20">
-          <div className="hidden md:block absolute top-5 left-0 w-full h-[2px] bg-[#BF9B30]" />
-
-          <ul className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
-            {[
-              { step: "1", title: "Select Vehicle", text: "Choose from our luxury fleet." },
-              { step: "2", title: "Set Details", text: "Pickup, destination, date & time." },
-              { step: "3", title: "Confirm Booking", text: "Clear pricing, no surprises." },
-              { step: "4", title: "Enjoy the Journey", text: "Relax with professional service." },
-            ].map((item) => (
-              <li key={item.step}>
-                <div className="w-10 h-10 mx-auto mb-6 rounded bg-[#BF9B30] flex items-center justify-center font-bold">
-                  {item.step}
-                </div>
-                <h4 className="font-semibold mb-3">{item.title}</h4>
-                <p className="text-sm text-gray-100">{item.text}</p>
-              </li>
-            ))}
-          </ul>
+          {[...fleetSlides, ...fleetSlides].map((slide, index) => (
+            <div
+              key={index}
+              className="relative w-screen h-[500px] sm:h-[450px] md:h-[500px] lg:h-[550px] flex-shrink-0"
+              style={{
+                backgroundImage: `url(${slide.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="absolute inset-0 bg-black/50" />
+            </div>
+          ))}
         </div>
 
-        <div className="h-24" />
+        {/* Content on top of carousel - Adjusted for mobile */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full pt-32 sm:pt-28 md:pt-24 lg:pt-28">
+            {/* Main heading with proper spacing for mobile */}
+            <div className="mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-5 leading-tight text-center">
+                Executive Chauffeur Service
+                <br />
+                <span className="text-[#BF9B30] font-semibold">
+                  crafted for comfort and discretion
+                </span>
+              </h1>
+
+              <p className="text-gray-200 max-w-2xl mb-4 sm:mb-5 md:mb-6 text-sm sm:text-base md:text-lg leading-relaxed text-center mx-auto">
+                Travel with confidence using our premium chauffeur-driven vehicles.
+                Every journey is handled by professionals who value punctuality,
+                privacy, and excellence.
+              </p>
+            </div>
+
+            {/* CONTACT - With better mobile spacing */}
+            <div className="mb-5 sm:mb-6 md:mb-7 lg:mb-8 space-y-1 text-center">
+              <a href="mailto:info@royalerides.co.uk" className="hover:underline block text-sm sm:text-base md:text-lg">
+                info@royalerides.co.uk
+              </a>
+              <a href="tel:+447310236707" className="hover:underline block text-sm sm:text-base md:text-lg">
+                +44 7310 236707
+              </a>
+            </div>
+
+            {/* Button with more space on mobile */}
+            <div className="mt-8 sm:mt-7 md:mt-8 lg:mt-8 text-center">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="bg-[#BF9B30] px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-md font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base md:text-lg"
+              >
+                Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-     {/* FIXED SIDE ICONS */}
-<div className="fixed right-4 bottom-4 z-50 flex flex-col gap-3">
-  <a
-    href="https://wa.me/447310236707"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-    title="Chat on WhatsApp"
-  >
-    {/* WhatsApp Icon */}
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 448 512" 
-      className="w-5 h-5 fill-white"
-    >
-      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-    </svg>
-  </a>
+      {/* ================= TIMELINE SECTION (Below carousel) ================= */}
+      {/* Added margin-top to separate from button */}
+      <div className="bg-black py-10 sm:py-12 md:py-14 lg:py-16 mt-8 sm:mt-0">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative">
+            <div className="hidden md:block absolute top-5 left-0 w-full h-[2px] bg-[#BF9B30]" />
 
-  <a
-    href="tel:+447310236707"
-    className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-    title="Call us"
-  >
-    {/* Phone Icon */}
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 512 512" 
-      className="w-5 h-5 fill-white"
-    >
-      <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
-    </svg>
-  </a>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12 text-center">
+              {[
+                { step: "1", title: "Select Vehicle", text: "Choose from our luxury fleet." },
+                { step: "2", title: "Set Details", text: "Pickup, destination, date & time." },
+                { step: "3", title: "Confirm Booking", text: "Clear pricing, no surprises." },
+                { step: "4", title: "Enjoy Journey", text: "Relax with professional service." },
+              ].map((item) => (
+                <li key={item.step} className="relative">
+                  <div className="relative z-10 w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 mx-auto mb-4 sm:mb-5 rounded-full bg-[#BF9B30] flex items-center justify-center font-bold text-base sm:text-lg md:text-xl">
+                    {item.step}
+                  </div>
+                  <h4 className="font-semibold mb-2 sm:mb-3 text-lg sm:text-xl md:text-2xl">{item.title}</h4>
+                  <p className="text-sm sm:text-base md:text-lg text-gray-300 px-2">{item.text}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
 
-  <a
-    href="mailto:info@royalerides.co.uk"
-    className="w-10 h-10 rounded-full bg-[#BF9B30] flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-    title="Email us"
-  >
-    {/* Email Icon */}
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 512 512" 
-      className="w-5 h-5 fill-white"
-    >
-      <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
-    </svg>
-  </a>
-</div>
-
-      {/* POPUP FORM */}
+      {/* ================= POPUP FORM ================= */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div
             className="absolute inset-0 bg-black/70"
             onClick={() => setIsOpen(false)}
           />
 
-          <div className="relative bg-white w-full max-w-3xl mx-4 rounded-xl shadow-2xl p-6 md:p-8 z-10">
+          <div className="relative bg-white w-full max-w-md sm:max-w-lg md:max-w-3xl mx-auto rounded-xl shadow-2xl p-4 sm:p-6 md:p-8 z-10 max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-600 text-xl"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-xl sm:text-2xl text-gray-600 hover:text-gray-900 transition-colors"
             >
               ✕
             </button>
 
-            <h3 className="text-2xl font-semibold mb-6 text-[#002462]">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-[#002462]">
               Check Availability
             </h3>
 
-            <form onSubmit={(e) => e.preventDefault()}>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-    {[
-      { placeholder: "Pick-up location", key: "pickup", type: "text" },
-      { placeholder: "Drop-off location", key: "dropoff", type: "text" },
-      { key: "pickupDate", type: "date" },
-      { key: "pickupTime", type: "time" },
-    ].map((field, i) => (
-      <input
-        key={i}
-        required
-        type={field.type}
-        placeholder={field.placeholder}
-        className="w-full border border-gray-300 bg-white text-black placeholder-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
-        onChange={(e) =>
-          setFormData({ ...formData, [field.key]: e.target.value })
-        }
-      />
-    ))}
-  </div>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              setIsOpen(false);
+            }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                {/* Pick-up Location */}
+                <div className="relative">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Pick-up Location
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    placeholder="Enter pick-up address"
+                    className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#BF9B30] focus:border-transparent"
+                    value={formData.pickup}
+                    onChange={(e) =>
+                      setFormData({ ...formData, pickup: e.target.value })
+                    }
+                  />
+                </div>
 
-  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-    <button
-      type="submit"
-      onClick={() => {
-        console.log("Make Booking", formData);
-        setIsOpen(false);
-      }}
-      className="bg-[#BF9B30] text-white px-8 py-2 rounded-md font-semibold hover:opacity-90 transition"
-    >
-      Make Booking
-    </button>
-  </div>
-</form>
+                {/* Drop-off Location */}
+                <div className="relative">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Drop-off Location
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    placeholder="Enter drop-off address"
+                    className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#BF9B30] focus:border-transparent"
+                    value={formData.dropoff}
+                    onChange={(e) =>
+                      setFormData({ ...formData, dropoff: e.target.value })
+                    }
+                  />
+                </div>
 
+                {/* Pick-up Date */}
+                <div className="relative">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Pick-up Date
+                  </label>
+                  <input
+                    required
+                    type="date"
+                    className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#BF9B30] focus:border-transparent"
+                    value={formData.pickupDate}
+                    onChange={(e) =>
+                      setFormData({ ...formData, pickupDate: e.target.value })
+                    }
+                  />
+                </div>
+
+                {/* Pick-up Time */}
+                <div className="relative">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Pick-up Time
+                  </label>
+                  <input
+                    required
+                    type="time"
+                    className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#BF9B30] focus:border-transparent"
+                    value={formData.pickupTime}
+                    onChange={(e) =>
+                      setFormData({ ...formData, pickupTime: e.target.value })
+                    }
+                  />
+                </div>
+              </div>
+
+              <div className="mt-6 sm:mt-8 text-center">
+                <button
+                  type="submit"
+                  className="bg-[#BF9B30] text-white px-6 sm:px-10 py-2.5 sm:py-3 rounded-md font-semibold hover:bg-[#a88528] transition-colors text-sm sm:text-base w-full sm:w-auto"
+                >
+                  Make Booking
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
+
+      {/* CSS Animation for carousel - Speed 20s */}
+      <style jsx>{`
+        @keyframes fleetLeft {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-fleet-left {
+          animation: fleetLeft 30s linear infinite;
+        }
+
+        @media (max-width: 640px) {
+          .animate-fleet-left {
+            animation-duration: 15s;
+          }
+        }
+      `}</style>
     </section>
   );
 }
