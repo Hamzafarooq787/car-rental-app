@@ -70,8 +70,8 @@ export default function Footer() {
             {/* Social Media Links */}
             <div className="flex gap-4 mt-6">
               {/* Facebook Link */}
-              <Link 
-                href="https://www.facebook.com/profile.php?id=61579840431678&mibextid=wwXIfr&rdid=LZgXoqUmdlxnDuY8&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Gv4KuRU5g%2F%3Fmibextid%3DwwXIfr" 
+              <Link
+                href="https://www.facebook.com/profile.php?id=61579840431678&mibextid=wwXIfr&rdid=LZgXoqUmdlxnDuY8&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Gv4KuRU5g%2F%3Fmibextid%3DwwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1877F2] hover:bg-[#166FE5] transition-colors group"
@@ -79,10 +79,10 @@ export default function Footer() {
               >
                 <i className="fab fa-facebook-f text-white text-2xl group-hover:scale-110 transition-transform"></i>
               </Link>
-              
+
               {/* Instagram Link */}
-              <Link 
-                href="https://www.instagram.com/royale_ride_chauffeurs/?igsh=MW84b2VvY2owYmYxZQ%3D%3D&utm_source=qr" 
+              <Link
+                href="https://www.instagram.com/royale_ride_chauffeurs/?igsh=MW84b2VvY2owYmYxZQ%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] hover:opacity-90 transition-opacity group"
@@ -90,26 +90,6 @@ export default function Footer() {
               >
                 <i className="fab fa-instagram text-white text-2xl group-hover:scale-110 transition-transform"></i>
               </Link>
-
-              {/* WhatsApp Link */}
-              <a 
-                href={`https://wa.me/${phoneNumber.replace(/[^0-9+]/g, '')}?text=Hello%20Royalerides,%20I%20would%20like%20to%20inquire%20about%20your%20chauffeur%20services.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#25D366] hover:bg-[#1DA851] transition-colors group"
-                aria-label="Chat with us on WhatsApp"
-              >
-                <i className="fab fa-whatsapp text-white text-2xl group-hover:scale-110 transition-transform"></i>
-              </a>
-
-              {/* Call Link */}
-              <a 
-                href={`tel:${formattedPhoneNumber.replace(/\s/g, '')}`}
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#BF9B30] hover:bg-[#A88728] transition-colors group"
-                aria-label="Call us directly"
-              >
-                <i className="fas fa-phone text-white text-2xl group-hover:scale-110 transition-transform"></i>
-              </a>
             </div>
           </div>
 
@@ -169,25 +149,6 @@ export default function Footer() {
                 </a>
               </p>
 
-              {/* Direct Contact Icons (For Mobile Users) */}
-              <div className="flex gap-3 mt-4">
-                <a 
-                  href={`tel:${formattedPhoneNumber.replace(/\s/g, '')}`}
-                  className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#BF9B30] transition-colors"
-                >
-                  <i className="fas fa-phone text-[#BF9B30]"></i>
-                  <span>Call Now</span>
-                </a>
-                <a 
-                  href={`https://wa.me/${phoneNumber.replace(/[^0-9+]/g, '')}?text=Hello%20Royalerides,%20I%20would%20like%20to%20inquire%20about%20your%20chauffeur%20services.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#25D366] transition-colors"
-                >
-                  <i className="fab fa-whatsapp text-[#25D366]"></i>
-                  <span>WhatsApp</span>
-                </a>
-              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import FAQSection from "@/components/FAQSection";
 import FleetShowcase from "@/components/FleetShowcase";
+import FloatingContactIcons from "@/components/FloatingContactIcons";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -86,6 +87,7 @@ export default function HomePage() {
           <StatsSection />
         </div>
       </section> 
+      <FloatingContactIcons/>
       <Footer />
 
 
