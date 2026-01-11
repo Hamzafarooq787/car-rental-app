@@ -3,6 +3,9 @@ import React from "react";
 import Link from "next/link";
 
 export default function Footer() {
+  const phoneNumber = "+447310236707"; // WhatsApp کے لیے نمبر میں +44 کو + سے replace کیا
+  const formattedPhoneNumber = "+44 7310 236707"; // Display کے لیے formatted نمبر
+
   return (
     <>
       {/* CTA SECTION */}
@@ -28,7 +31,7 @@ export default function Footer() {
             </div>
 
             <div className="text-white text-3xl font-bold mb-4">
-              +44 7310 236707
+              {formattedPhoneNumber}
             </div>
 
             <Link
@@ -87,6 +90,26 @@ export default function Footer() {
               >
                 <i className="fab fa-instagram text-white text-2xl group-hover:scale-110 transition-transform"></i>
               </Link>
+
+              {/* WhatsApp Link */}
+              <a 
+                href={`https://wa.me/${phoneNumber.replace(/[^0-9+]/g, '')}?text=Hello%20Royalerides,%20I%20would%20like%20to%20inquire%20about%20your%20chauffeur%20services.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#25D366] hover:bg-[#1DA851] transition-colors group"
+                aria-label="Chat with us on WhatsApp"
+              >
+                <i className="fab fa-whatsapp text-white text-2xl group-hover:scale-110 transition-transform"></i>
+              </a>
+
+              {/* Call Link */}
+              <a 
+                href={`tel:${formattedPhoneNumber.replace(/\s/g, '')}`}
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#BF9B30] hover:bg-[#A88728] transition-colors group"
+                aria-label="Call us directly"
+              >
+                <i className="fas fa-phone text-white text-2xl group-hover:scale-110 transition-transform"></i>
+              </a>
             </div>
           </div>
 
@@ -141,8 +164,30 @@ export default function Footer() {
 
               <p>
                 <strong className="text-[#BF9B30]">Phone:</strong><br />
-                <Link href="/contact-us">+44 7310 236707</Link>
+                <a href={`tel:${formattedPhoneNumber.replace(/\s/g, '')}`} className="hover:text-[#BF9B30] transition-colors">
+                  {formattedPhoneNumber}
+                </a>
               </p>
+
+              {/* Direct Contact Icons (For Mobile Users) */}
+              <div className="flex gap-3 mt-4">
+                <a 
+                  href={`tel:${formattedPhoneNumber.replace(/\s/g, '')}`}
+                  className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#BF9B30] transition-colors"
+                >
+                  <i className="fas fa-phone text-[#BF9B30]"></i>
+                  <span>Call Now</span>
+                </a>
+                <a 
+                  href={`https://wa.me/${phoneNumber.replace(/[^0-9+]/g, '')}?text=Hello%20Royalerides,%20I%20would%20like%20to%20inquire%20about%20your%20chauffeur%20services.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#25D366] transition-colors"
+                >
+                  <i className="fab fa-whatsapp text-[#25D366]"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
