@@ -46,41 +46,65 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 pb-16">
 
           {/* Logo aur About section */}
-<div className="flex flex-col items-start">
-  {/* Logo */}
-   <Link href="/" className="flex items-center mb-6"> {/* mb-4 se mb-6 (more space) */}
-    <img
-      src="/images/logo-2.png"
-      alt="Luxury Chauffeur Service"
-      className="block h-[90px] w-auto object-contain" /* h-[70px] se h-[90px] bara kiya */
-    />
-  </Link>
+          <div className="flex flex-col items-start">
+            {/* Logo */}
+            <Link href="/" className="flex items-center mb-6">
+              <img
+                src="/images/logo-2.png"
+                alt="Luxury Chauffeur Service"
+                className="block h-[90px] w-auto object-contain"
+              />
+            </Link>
 
-  {/* ABOUT */}
-  <div>
-    <p className="text-sm leading-relaxed mb-6">
-      Royalerides provides premium chauffeur-driven transport across the UK.
-      We focus on punctuality, discretion, and comfort for every journey.
-    </p>
-  </div>
-</div>
+            {/* ABOUT */}
+            <div>
+              <p className="text-sm leading-relaxed mb-6">
+                Royalerides provides premium chauffeur-driven transport across the UK.
+                We focus on punctuality, discretion, and comfort for every journey.
+              </p>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex gap-4 mt-6">
+              {/* Facebook Link */}
+              <Link 
+                href="https://www.facebook.com/profile.php?id=61579840431678&mibextid=wwXIfr&rdid=LZgXoqUmdlxnDuY8&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Gv4KuRU5g%2F%3Fmibextid%3DwwXIfr" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1877F2] hover:bg-[#166FE5] transition-colors group"
+                aria-label="Visit our Facebook page"
+              >
+                <i className="fab fa-facebook-f text-white text-2xl group-hover:scale-110 transition-transform"></i>
+              </Link>
+              
+              {/* Instagram Link */}
+              <Link 
+                href="https://www.instagram.com/royale_ride_chauffeurs/?igsh=MW84b2VvY2owYmYxZQ%3D%3D&utm_source=qr" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] hover:opacity-90 transition-opacity group"
+                aria-label="Visit our Instagram page"
+              >
+                <i className="fab fa-instagram text-white text-2xl group-hover:scale-110 transition-transform"></i>
+              </Link>
+            </div>
+          </div>
 
           {/* AIRPORT TRANSFERS */}
           <div>
             <h4 className="text-[#BF9B30] font-semibold mb-5">
               Airport Transfers
             </h4>
-          <ul className="space-y-3 text-sm">
-  <li><Link href="/services">From Manchester to Heathrow Airport (London)</Link></li>
-  <li><Link href="/services">From Manchester to Gatwick Airport (London)</Link></li>
-  <li><Link href="/services">From Manchester to Birmingham Airport</Link></li>
-  <li><Link href="/services">From Manchester to Liverpool John Lennon Airport</Link></li>
-  <li><Link href="/services">From Manchester to Leeds Bradford Airport</Link></li>
-  <li><Link href="/services">From Manchester to Newcastle International Airport</Link></li>
-  <li><Link href="/services">From Manchester to Glasgow Airport</Link></li>
-  <li><Link href="/services">From Manchester to Edinburgh Airport</Link></li>
-</ul>
-
+            <ul className="space-y-3 text-sm">
+              <li><Link href="/services">From Manchester to Heathrow Airport (London)</Link></li>
+              <li><Link href="/services">From Manchester to Gatwick Airport (London)</Link></li>
+              <li><Link href="/services">From Manchester to Birmingham Airport</Link></li>
+              <li><Link href="/services">From Manchester to Liverpool John Lennon Airport</Link></li>
+              <li><Link href="/services">From Manchester to Leeds Bradford Airport</Link></li>
+              <li><Link href="/services">From Manchester to Newcastle International Airport</Link></li>
+              <li><Link href="/services">From Manchester to Glasgow Airport</Link></li>
+              <li><Link href="/services">From Manchester to Edinburgh Airport</Link></li>
+            </ul>
           </div>
 
           {/* CHAUFFEUR SERVICES */}
@@ -104,10 +128,11 @@ export default function Footer() {
             </h4>
 
             <div className="space-y-3 text-sm">
-              <Link href="/contact-us">  <p>
-                <br /><strong className="text-[#BF9B30]">Address:</strong><br />
-                Manchester, UK
-              </p>
+              <Link href="/contact-us">
+                <p>
+                  <br /><strong className="text-[#BF9B30]">Address:</strong><br />
+                  Manchester, UK
+                </p>
               </Link>
               <p>
                 <strong className="text-[#BF9B30]">Email:</strong><br />
