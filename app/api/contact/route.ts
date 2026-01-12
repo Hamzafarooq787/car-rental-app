@@ -1,45 +1,27 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { resend } from "@/lib/resend";
 
 export async function POST(req: Request) {
   try {
-    if (!process.env.RESEND_API_KEY) {
-      return NextResponse.json(
-        { error: "Email service not configured" },
-        { status: 503 }
-      );
-    }
-
     const { name, email, phone, message } = await req.json();
 
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
-    }
-
     await resend.emails.send({
-      from: "Royal Rides <no-reply@royalerides.co.uk>",
-      to: ["noorulainkashmiri00@gmail.com"],
+      from: "Royalerides Website <info@royalerides.co.uk>",
+      to: ["Royalerideltd@gmail.com"],
+      replyTo: email,
       subject: "New Contact Enquiry",
       html: `
-        <h3>New Contact Message</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "N/A"}</p>
-        <p><strong>Message:</strong> ${message}</p>
+        <h2>New Contact Message</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone || "N/A"}</p>
+        <p><b>Message:</b><br/>${message}</p>
       `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Contact API Error:", error);
-    return NextResponse.json(
-      { error: "Internal Server Error" },
-      { status: 500 }
-    );
+    console.error("EMAIL ERROR:", error);
+    return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }

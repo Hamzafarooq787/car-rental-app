@@ -18,6 +18,37 @@ export default function HeroSection() {
     pickupDate: "",
     pickupTime: "",
   });
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Request failed");
+
+      alert("✅ Booking request submitted!");
+      setFormData({
+        pickup: "",
+        dropoff: "",
+        pickupDate: "",
+        pickupTime: "",
+      });
+      setIsOpen(false);
+    } catch (err) {
+      console.error(err);
+      alert("❌ Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
     <section id="section-hero" className="relative overflow-hidden">
@@ -27,7 +58,6 @@ export default function HeroSection() {
           className="absolute inset-0 flex animate-fleet-left"
           style={{ width: `${fleetSlides.length * 100 * 2}vw` }}
         >
-
           {[...fleetSlides, ...fleetSlides].map((slide, index) => (
             <div
               key={index}
@@ -87,7 +117,6 @@ export default function HeroSection() {
       </div>
 
       {/* ================= TIMELINE SECTION (Below carousel) ================= */}
-      {/* Added margin-top to separate from button */}
       <div className="bg-black py-10 sm:py-12 md:py-14 lg:py-16 mt-8 sm:mt-0">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
@@ -129,78 +158,59 @@ export default function HeroSection() {
               ✕
             </button>
 
-            <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-[#002462]">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-[#002462] text-center">
               Check Availability
             </h3>
 
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              setIsOpen(false);
-            }}>
+            <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                {/* Pick-up Location */}
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Pick-up Location
-                  </label>
+                {/* Pickup */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Pick-up Location</label>
                   <input
                     required
                     type="text"
                     placeholder="Enter pick-up address"
-                    className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#BF9B30] focus:border-transparent"
+                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
                     value={formData.pickup}
-                    onChange={(e) =>
-                      setFormData({ ...formData, pickup: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, pickup: e.target.value })}
                   />
                 </div>
 
-                {/* Drop-off Location */}
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Drop-off Location
-                  </label>
+                {/* Dropoff */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Drop-off Location</label>
                   <input
                     required
                     type="text"
                     placeholder="Enter drop-off address"
-                    className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#BF9B30] focus:border-transparent"
+                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
                     value={formData.dropoff}
-                    onChange={(e) =>
-                      setFormData({ ...formData, dropoff: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, dropoff: e.target.value })}
                   />
                 </div>
 
-                {/* Pick-up Date */}
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Pick-up Date
-                  </label>
+                {/* Pickup Date */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Pick-up Date</label>
                   <input
                     required
                     type="date"
-                    className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#BF9B30] focus:border-transparent"
+                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
                     value={formData.pickupDate}
-                    onChange={(e) =>
-                      setFormData({ ...formData, pickupDate: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, pickupDate: e.target.value })}
                   />
                 </div>
 
-                {/* Pick-up Time */}
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Pick-up Time
-                  </label>
+                {/* Pickup Time */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Pick-up Time</label>
                   <input
                     required
                     type="time"
-                    className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#BF9B30] focus:border-transparent"
+                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
                     value={formData.pickupTime}
-                    onChange={(e) =>
-                      setFormData({ ...formData, pickupTime: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, pickupTime: e.target.value })}
                   />
                 </div>
               </div>
@@ -208,9 +218,10 @@ export default function HeroSection() {
               <div className="mt-6 sm:mt-8 text-center">
                 <button
                   type="submit"
+                  disabled={loading}
                   className="bg-[#BF9B30] text-white px-6 sm:px-10 py-2.5 sm:py-3 rounded-md font-semibold hover:bg-[#a88528] transition-colors text-sm sm:text-base w-full sm:w-auto"
                 >
-                  Make Booking
+                  {loading ? "Submitting..." : "Make Booking"}
                 </button>
               </div>
             </form>

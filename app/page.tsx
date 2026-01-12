@@ -8,6 +8,7 @@ import MarqueeLuxury from "@/components/MarqueeLuxury";
 import MarqueeSection from "@/components/MarqueeSection";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import StatsSection from "@/components/StatsSection";
+import HomeBookingSection from "@/components/HomeBookingSection"
 
 
 type Area = {
@@ -30,6 +31,7 @@ export default function HomePage() {
 
       <Header />
       <HeroSection />
+      <HomeBookingSection />
       <MarqueeLuxury/>
       <FleetShowcase />
       <ServicesShowcase />

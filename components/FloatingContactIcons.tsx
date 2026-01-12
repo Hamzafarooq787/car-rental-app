@@ -4,6 +4,7 @@ import React from "react";
 export default function FloatingContactIcons() {
   const phoneNumber = "+447310236707";
   const displayNumber = "+44 7310 236707";
+  const emailAddress = "info@royalerides.co.uk";
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
@@ -19,13 +20,13 @@ export default function FloatingContactIcons() {
         <i className="fab fa-whatsapp text-white text-3xl"></i>
       </a>
 
-      {/* Call */}
+      {/* Email */}
       <a
-        href={`tel:${displayNumber.replace(/\s/g, "")}`}
+        href={`mailto:${emailAddress}?subject=Chauffeur Service Inquiry&body=Hello Royalerides,%0D%0A%0D%0AI would like to inquire about your chauffeur services.`}
         className="w-14 h-14 rounded-full bg-[#BF9B30] flex items-center justify-center shadow-lg hover:scale-110 transition"
-        aria-label="Call Now"
+        aria-label="Send Email"
       >
-        <i className="fas fa-phone text-white text-2xl"></i>
+        <i className="fas fa-envelope text-white text-2xl"></i>
       </a>
 
     </div>
