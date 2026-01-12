@@ -23,7 +23,7 @@ const areas: Area[] = [
   { name: "Leeds", image: "/images/areas/leeds.jpg" },
   { name: "Newcastle", image: "/images/areas/newcastle.avif" },
   { name: "Birmingham", image: "/images/areas/birmingham.jpg" },
-  
+
 ];
 export default function HomePage() {
   return (
@@ -31,12 +31,12 @@ export default function HomePage() {
 
       <Header />
       <HeroSection />
+      <MarqueeLuxury />
       <HomeBookingSection />
-      <MarqueeLuxury/>
       <FleetShowcase />
       <ServicesShowcase />
       <MarqueeSection />
-       
+
       <FAQSection />
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6 space-y-10">
@@ -63,7 +63,7 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-       <section
+      <section
         className="relative py-20"
         style={{
           backgroundImage: "url('/images/background/2.jpeg')",
@@ -88,8 +88,8 @@ export default function HomePage() {
 
           <StatsSection />
         </div>
-      </section> 
-      <FloatingContactIcons/>
+      </section>
+      <FloatingContactIcons />
       <Footer />
 
 

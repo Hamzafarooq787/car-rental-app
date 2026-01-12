@@ -116,31 +116,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ================= TIMELINE SECTION (Below carousel) ================= */}
-      <div className="bg-black py-10 sm:py-12 md:py-14 lg:py-16 mt-8 sm:mt-0">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative">
-            <div className="hidden md:block absolute top-5 left-0 w-full h-[2px] bg-[#BF9B30]" />
-
-            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12 text-center">
-              {[
-                { step: "1", title: "Select Vehicle", text: "Choose from our luxury fleet." },
-                { step: "2", title: "Set Details", text: "Pickup, destination, date & time." },
-                { step: "3", title: "Confirm Booking", text: "Clear pricing, no surprises." },
-                { step: "4", title: "Enjoy Journey", text: "Relax with professional service." },
-              ].map((item) => (
-                <li key={item.step} className="relative">
-                  <div className="relative z-10 w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 mx-auto mb-4 sm:mb-5 rounded-full bg-[#BF9B30] flex items-center justify-center font-bold text-base sm:text-lg md:text-xl">
-                    {item.step}
-                  </div>
-                  <h4 className="font-semibold mb-2 sm:mb-3 text-lg sm:text-xl md:text-2xl">{item.title}</h4>
-                  <p className="text-sm sm:text-base md:text-lg text-gray-300 px-2">{item.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+   
 
       {/* ================= POPUP FORM ================= */}
       {isOpen && (
