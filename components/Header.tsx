@@ -40,7 +40,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center py-2 pl-4">
             <img
-              src="/images/logo-2.png"
+              src="/images/logo.png"
               alt="Luxury Chauffeur Service"
               className="block h-[88px] w-auto object-contain"
             />
