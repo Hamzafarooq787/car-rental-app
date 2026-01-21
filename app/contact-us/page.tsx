@@ -1,5 +1,6 @@
 "use client";
 
+import FloatingContactIcons from "@/components/FloatingContactIcons";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import React, { useState } from "react";
@@ -145,6 +146,7 @@ const ContactPage: React.FC = () => {
 
         </div>
       </section>
+        <FloatingContactIcons/>
 
       <Footer />
     </>

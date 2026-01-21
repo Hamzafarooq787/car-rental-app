@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Users, Luggage, Briefcase, CheckCircle } from "lucide-react";
+import FloatingContactIcons from "@/components/FloatingContactIcons";
 
 type Car = {
   name: string;
@@ -191,6 +192,7 @@ export default function CarPage() {
           </div>
         </div>
       </section>
+        <FloatingContactIcons/>
 
       <Footer />
     </>

@@ -7,6 +7,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import FleetHeroCarousel from "@/components/FleetHeroCarousel";
 import Link from "next/link";
+import FloatingContactIcons from "@/components/FloatingContactIcons";
 
 type Service = {
   title: string;
@@ -54,13 +55,18 @@ export default function ServicesPage() {
 
       {/* Hero Section */}
       <FleetHeroCarousel />
-{/* 
-      Booking Section
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <BookingSection />
-        </div>
-      </section> */}
+<section className="py-16 bg-[#fff] text-center">
+  <div className="max-w-3xl mx-auto px-6">
+    <h2 className="text-3xl md:text-4xl font-bold text-[#0b1c39] mb-4">
+      Our Services
+    </h2>
+    <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
+      We provide a range of premium automotive services designed to ensure safety, comfort, and performance.
+    </p>
+  </div>
+</section>
+
+
 
       {/* Services Section */}
       <section className="py-16 bg-white">
@@ -124,7 +130,8 @@ export default function ServicesPage() {
           })}
         </div>
       </section>
-
+         <FloatingContactIcons/>
+ 
       <Footer />
     </>
   );

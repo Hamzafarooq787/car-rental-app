@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingContactIcons from "@/components/FloatingContactIcons";
 
 type Area = {
   name: string;
@@ -64,6 +65,7 @@ export default function AreasPage() {
           ))}
         </div>
       </section>
+        <FloatingContactIcons/>
 
       <Footer />
     </>
