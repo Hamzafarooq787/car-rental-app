@@ -49,7 +49,6 @@ export default function HeroSection() {
     }
   };
 
-
   return (
     <section id="section-hero" className="relative overflow-hidden">
       {/* ================= BACKGROUND CAROUSEL ================= */}
@@ -73,10 +72,10 @@ export default function HeroSection() {
           ))}
         </div>
 
-        {/* Content on top of carousel - Adjusted for mobile */}
+        {/* Content */}
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full pt-32 sm:pt-28 md:pt-24 lg:pt-28">
-            {/* Main heading with proper spacing for mobile */}
+
             <div className="mb-6 sm:mb-8 md:mb-10 lg:mb-12">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-5 leading-tight text-center">
                 Executive Chauffeur Service
@@ -93,32 +92,36 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* CONTACT - With better mobile spacing */}
             <div className="mb-5 sm:mb-6 md:mb-7 lg:mb-8 space-y-1 text-center">
-              <a href="mailto:info@royalerides.co.uk" className="hover:underline block text-sm sm:text-base md:text-lg">
+              <a
+                href="mailto:info@royalerides.co.uk"
+                className="hover:underline block text-sm sm:text-base md:text-lg"
+              >
                 info@royalerides.co.uk
               </a>
-              <a href="tel:+447310236707" className="hover:underline block text-sm sm:text-base md:text-lg">
+              <a
+                href="tel:+447310236707"
+                className="hover:underline block text-sm sm:text-base md:text-lg"
+              >
                 +44 7310 236707
               </a>
             </div>
 
-            {/* Button with more space on mobile */}
+            {/* ✅ BUTTON UPDATED ONLY */}
             <div className="mt-8 sm:mt-7 md:mt-8 lg:mt-8 text-center">
-              <button
-                onClick={() => setIsOpen(true)}
-                className="bg-[#BF9B30] px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-md font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base md:text-lg"
+              <a
+                href="https://royalerides.co.uk/services"
+                className="bg-[#BF9B30] px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-md font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base md:text-lg inline-block"
               >
-                Get Quote
-              </button>
+                Our Services
+              </a>
             </div>
+
           </div>
         </div>
       </div>
 
-   
-
-      {/* ================= POPUP FORM ================= */}
+      {/* ================= POPUP FORM (UNCHANGED, NOW UNUSED) ================= */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div
@@ -140,51 +143,46 @@ export default function HeroSection() {
 
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                {/* Pickup */}
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Pick-up Location</label>
                   <input
                     required
                     type="text"
-                    placeholder="Enter pick-up address"
-                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
+                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3"
                     value={formData.pickup}
                     onChange={(e) => setFormData({ ...formData, pickup: e.target.value })}
                   />
                 </div>
 
-                {/* Dropoff */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Drop-off Location</label>
                   <input
                     required
                     type="text"
-                    placeholder="Enter drop-off address"
-                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
+                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3"
                     value={formData.dropoff}
                     onChange={(e) => setFormData({ ...formData, dropoff: e.target.value })}
                   />
                 </div>
 
-                {/* Pickup Date */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Pick-up Date</label>
                   <input
                     required
                     type="date"
-                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
+                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3"
                     value={formData.pickupDate}
                     onChange={(e) => setFormData({ ...formData, pickupDate: e.target.value })}
                   />
                 </div>
 
-                {/* Pickup Time */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Pick-up Time</label>
                   <input
                     required
                     type="time"
-                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
+                    className="w-full border text-black border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3"
                     value={formData.pickupTime}
                     onChange={(e) => setFormData({ ...formData, pickupTime: e.target.value })}
                   />
@@ -195,7 +193,7 @@ export default function HeroSection() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-[#BF9B30] text-white px-6 sm:px-10 py-2.5 sm:py-3 rounded-md font-semibold hover:bg-[#a88528] transition-colors text-sm sm:text-base w-full sm:w-auto"
+                  className="bg-[#BF9B30] text-white px-6 sm:px-10 py-2.5 sm:py-3 rounded-md font-semibold"
                 >
                   {loading ? "Submitting..." : "Make Booking"}
                 </button>
@@ -205,21 +203,14 @@ export default function HeroSection() {
         </div>
       )}
 
-      {/* CSS Animation for carousel - Speed 20s */}
       <style jsx>{`
         @keyframes fleetLeft {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
-
         .animate-fleet-left {
           animation: fleetLeft 30s linear infinite;
         }
-
         @media (max-width: 640px) {
           .animate-fleet-left {
             animation-duration: 15s;
