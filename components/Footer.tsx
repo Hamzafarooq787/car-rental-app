@@ -153,12 +153,28 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* BOTTOM BAR */}
-        <div className="border-t border-white/10 py-6">
-          <div className="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} Royalerides. All Rights Reserved
-          </div>
-        </div>
+      
+       {/* BOTTOM BAR */}
+<div className="border-t border-white/10 py-6">
+  <div className="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400 space-y-1">
+    <div>
+      © {new Date().getFullYear()} Royalerides. All Rights Reserved
+    </div>
+
+    <div>
+      Designed & Developed by{" "}
+      <a
+        href="https://linkedo.co.uk"
+        target="_blank"
+        rel="nofollow noopener noreferrer"
+        className="text-gray-300 hover:text-white transition"
+      >
+        Linkedo
+      </a>
+    </div>
+  </div>
+</div>
+
       </footer>
     </>
   );
