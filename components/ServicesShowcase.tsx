@@ -13,32 +13,32 @@ type Service = {
 const services: Service[] = [
   {
     title: "Executive Chauffeur Service",
-    desc: "Tailored rides for business or personal travel, ensuring punctuality and privacy.",
+    desc: "Our executive chauffeur service is tailored for business and personal travel where punctuality, discretion, and comfort matter most. Whether attending meetings, events, or daily engagements, our professional chauffeurs ensure a smooth, refined journey.",
     image: "/images/services/Chaffeur.jpeg",
   },
   {
     title: "Professional Chauffeur Hire",
-    desc: "Hire highly trained drivers for flexible schedules and seamless journeys.",
+    desc: "Enjoy flexible and reliable travel with our professional chauffeur hire service. Ideal for short-term or full-day requirements, this option adapts to your schedule and destinations. Our experienced drivers provide courteous service, efficient routing, and a seamless experience from start to finish.",
     image: "/images/services/Professional-chauffeur.jpg",
   },
   {
     title: "Luxury MPV & Van Service",
-    desc: "Spacious vehicles for groups or families with premium comfort and style.",
+    desc: "Our luxury MPV and van service offers spacious, premium travel for families, groups, and business clients. With comfortable seating and generous luggage space, it is perfect for long journeys, airport transfers, and group transportation. Comfort, style, and practicality come together in every ride.",
     image: "/images/services/MPV-Van.jpeg",
   },
   {
     title: "Airport Transfers",
-    desc: "Smooth, timely, and stress-free transfers for business or leisure travelers.",
+    desc: "We offer dependable airport transfers designed to remove the stress from your journey. Our chauffeurs track flight schedules to ensure timely pickups and smooth drop-offs, regardless of delays. Whether arriving or departing, we guarantee a punctual, comfortable, and hassle-free experience.",
     image: "/images/services/luxury-airport-transfer.jpeg",
   },
   {
     title: "Private Chauffeur Experiences",
-    desc: "Personalized journeys with a dedicated driver, tailored to your itinerary.",
+    desc: "Our private chauffeur experience provides a personalized travel solution built around your plans. From city travel to special occasions, enjoy the freedom of a dedicated chauffeur who adapts to your itinerary. This service is ideal for clients seeking privacy, flexibility, and premium comfort.",
     image: "/images/services/private-chuffeure.webp",
   },
   {
     title: "Executive Group Transport",
-    desc: "Professional transport solutions for corporate events and private gatherings.",
+    desc: "Our executive group transport service delivers coordinated and professional travel for corporate events and private gatherings. With modern vehicles and experienced chauffeurs, we ensure efficient group movement without compromising comfort or presentation. Ideal for meetings, conferences, and special events.",
     image: "/images/services/Executive_group.jpeg",
   },
 ];
