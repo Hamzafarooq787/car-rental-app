@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     console.log("Booking/Contact data received:", data);
 
     // Using Resend test sender
-    const fromEmail = "Royalerides Website <onboarding@resend.dev>";
+    const fromEmail = "Royalerides Website <no-reply@resend.dev>";
 
     const resendResponse = await resend.emails.send({
       from: fromEmail,
