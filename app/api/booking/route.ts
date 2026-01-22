@@ -9,7 +9,8 @@ export async function POST(req: NextRequest) {
     console.log("📨 Booking/Contact data received:", data);
 
     // Use your verified domain here
-    const fromEmail = "Royalerides Website <info@royalerides.co.uk>";
+    const fromEmail = "Royalerides Website <onboarding@resend.dev>";
+
 
     // Send email to your inbox
     const resendResponse = await resend.emails.send({
