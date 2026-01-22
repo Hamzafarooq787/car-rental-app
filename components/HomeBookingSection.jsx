@@ -13,41 +13,39 @@ const HomeBookingSection = () => {
     email: "",
   });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      const res = await fetch("/api/booking", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    const message = `
+New Quotation Request
 
-      const result = await res.json();
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email || "Not provided"}
 
-      if (!res.ok) {
-        console.error(result);
-        alert("Something went wrong. Email not sent ❌");
-        return;
-      }
+Pickup Location: ${formData.pickup}
+Drop-off Location: ${formData.dropoff}
+Pick-up Date: ${formData.pickupDate}
+Pick-up Time: ${formData.pickupTime}
+`;
 
-      alert("Booking request sent successfully ✅");
+    const whatsappNumber = "447310236707"; // UK number without + or spaces
 
-      setFormData({
-        pickup: "",
-        dropoff: "",
-        pickupDate: "",
-        pickupTime: "",
-        name: "",
-        phone: "",
-        email: "",
-      });
-    } catch (error) {
-      console.error(error);
-      alert("Server error ❌");
-    }
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(whatsappURL, "_blank");
+
+    setFormData({
+      pickup: "",
+      dropoff: "",
+      pickupDate: "",
+      pickupTime: "",
+      name: "",
+      phone: "",
+      email: "",
+    });
   };
 
   return (
@@ -55,7 +53,6 @@ const HomeBookingSection = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-12">
 
-          {/* Heading */}
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-semibold text-[#002462]">
               Check Availability
@@ -65,11 +62,9 @@ const HomeBookingSection = () => {
             </p>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {/* Name */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Name
@@ -77,7 +72,6 @@ const HomeBookingSection = () => {
                 <input
                   required
                   type="text"
-                  placeholder="Enter your name"
                   className="w-full text-black border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
                   value={formData.name}
                   onChange={(e) =>
@@ -86,7 +80,6 @@ const HomeBookingSection = () => {
                 />
               </div>
 
-              {/* Phone */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Phone Number
@@ -94,7 +87,6 @@ const HomeBookingSection = () => {
                 <input
                   required
                   type="tel"
-                  placeholder="Enter phone number"
                   className="w-full text-black border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
                   value={formData.phone}
                   onChange={(e) =>
@@ -103,14 +95,12 @@ const HomeBookingSection = () => {
                 />
               </div>
 
-              {/* Email */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Email (Optional)
                 </label>
                 <input
                   type="email"
-                  placeholder="Enter email address"
                   className="w-full text-black border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
                   value={formData.email}
                   onChange={(e) =>
@@ -119,7 +109,6 @@ const HomeBookingSection = () => {
                 />
               </div>
 
-              {/* Pick-up */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Pick-up Location
@@ -127,7 +116,6 @@ const HomeBookingSection = () => {
                 <input
                   required
                   type="text"
-                  placeholder="Enter pick-up address"
                   className="w-full text-black border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
                   value={formData.pickup}
                   onChange={(e) =>
@@ -136,7 +124,6 @@ const HomeBookingSection = () => {
                 />
               </div>
 
-              {/* Drop-off */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Drop-off Location
@@ -144,7 +131,6 @@ const HomeBookingSection = () => {
                 <input
                   required
                   type="text"
-                  placeholder="Enter drop-off address"
                   className="w-full text-black border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#BF9B30]"
                   value={formData.dropoff}
                   onChange={(e) =>
@@ -153,7 +139,6 @@ const HomeBookingSection = () => {
                 />
               </div>
 
-              {/* Date */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Pick-up Date
@@ -169,7 +154,6 @@ const HomeBookingSection = () => {
                 />
               </div>
 
-              {/* Time */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Pick-up Time
@@ -186,7 +170,6 @@ const HomeBookingSection = () => {
               </div>
             </div>
 
-            {/* Button */}
             <div className="mt-10 text-center">
               <button
                 type="submit"
