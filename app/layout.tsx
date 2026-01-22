@@ -7,6 +7,22 @@ export const metadata = {
   icons: {
     icon: "/favicon.png",
   },
+  openGraph: {
+    title: "Royal Rides | Executive Chauffeur Service in the UK",
+    description:
+      "Luxury executive chauffeur service across the UK. Premium vehicles, professional drivers, airport transfers and business travel with comfort, privacy and discretion.",
+    url: "https://royalerides.co.uk",
+    siteName: "Royal Rides",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Royal Rides Executive Chauffeur Service",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
